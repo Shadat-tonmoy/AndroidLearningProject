@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">DialogUsingAlertDialog</string>
+    <string-array name="names">
+        <item>Shadat Tonmoy</item>
+        <item>Foyez Akanda</item>
+        <item>Alim Al Sajib</item>
+        <item>Mong Ting Wong</item>
+        <item>Shamsul Arafin</item>
+    </string-array>
+</resources>

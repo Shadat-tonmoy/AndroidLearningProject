@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">FragmentBasedUI</string>
+    <string-array name="title">
+        <item>Shadat Tonmoy</item>
+        <item>Foyez Akanda</item>
+        <item>Shamsul Arafin</item>
+        <item>Alim Al Sajib</item>
+        <item>Mong Ting Wong</item>
+    </string-array>
+
+    <string-array name="description">
+        <item>Dummy Text For Shadat Tonmoy : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid ergo hoc loco intellegit honestum? Confecta res esset. Consequens enim est et post oritur, ut dixi. Quid sequatur, quid repugnet, vident. Duo Reges: constructio interrete. Qui ita affectus, beatum esse numquam probabis; Indicant pueri, in quibus ut in speculis natura cernitur. Eorum enim omnium multa praetermittentium, dum eligant aliquid, quod sequantur, quasi curta sententia; Quibus ego vehementer assentior. Quod non faceret, si in voluptate summum bonum poneret.</item>
+
+        <item>Dummy Text For Foyez Akanda : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid ergo hoc loco intellegit honestum? Confecta res esset. Consequens enim est et post oritur, ut dixi. Quid sequatur, quid repugnet, vident. Duo Reges: constructio interrete. Qui ita affectus, beatum esse numquam probabis; Indicant pueri, in quibus ut in speculis natura cernitur. Eorum enim omnium multa praetermittentium, dum eligant aliquid, quod sequantur, quasi curta sententia; Quibus ego vehementer assentior. Quod non faceret, si in voluptate summum bonum poneret.</item>
+
+        <item>Dummy Text For Shamsul Arafin : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid ergo hoc loco intellegit honestum? Confecta res esset. Consequens enim est et post oritur, ut dixi. Quid sequatur, quid repugnet, vident. Duo Reges: constructio interrete. Qui ita affectus, beatum esse numquam probabis; Indicant pueri, in quibus ut in speculis natura cernitur. Eorum enim omnium multa praetermittentium, dum eligant aliquid, quod sequantur, quasi curta sententia; Quibus ego vehementer assentior. Quod non faceret, si in voluptate summum bonum poneret.</item>
+
+        <item>Dummy Text For Alim Al Sajib : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid ergo hoc loco intellegit honestum? Confecta res esset. Consequens enim est et post oritur, ut dixi. Quid sequatur, quid repugnet, vident. Duo Reges: constructio interrete. Qui ita affectus, beatum esse numquam probabis; Indicant pueri, in quibus ut in speculis natura cernitur. Eorum enim omnium multa praetermittentium, dum eligant aliquid, quod sequantur, quasi curta sententia; Quibus ego vehementer assentior. Quod non faceret, si in voluptate summum bonum poneret.</item>
+
+        <item>Dummy Text For Mong Ting : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid ergo hoc loco intellegit honestum? Confecta res esset. Consequens enim est et post oritur, ut dixi. Quid sequatur, quid repugnet, vident. Duo Reges: constructio interrete. Qui ita affectus, beatum esse numquam probabis; Indicant pueri, in quibus ut in speculis natura cernitur. Eorum enim omnium multa praetermittentium, dum eligant aliquid, quod sequantur, quasi curta sententia; Quibus ego vehementer assentior. Quod non faceret, si in voluptate summum bonum poneret.</item>
+
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

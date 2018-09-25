@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">NavigationDrawer</string>
+    <string-array name="names">
+        <item>Shadat Tonmoy</item>
+        <item>Foyez Akanda</item>
+        <item>Mong Ting Wong</item>
+        <item>Alim Al Sajib</item>
+        <item>Shamsul Arafin</item>
+    </string-array>
+    <string name="drawerOpen">Drawer is opened</string>
+    <string name="drawerClose">Drawer is closed</string>
+</resources>

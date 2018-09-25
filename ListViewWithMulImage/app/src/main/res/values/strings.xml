@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">ListViewWithMulImage</string>
+    <string-array name="titles">
+        <item>Facebook</item>
+        <item>Twitter</item>
+        <item>Google Plus</item>
+        <item>Instragram</item>
+        <item>Linkedin</item>
+        <item>Pinterest</item>
+    </string-array>
+
+    <string-array name="description">
+        <item>Description goes here about the respective title and icon</item>
+        <item>Description goes here about the respective title and icon</item>
+        <item>Description goes here about the respective title and icon</item>
+        <item>Description goes here about the respective title and icon</item>
+        <item>Description goes here about the respective title and icon</item>
+        <item>Description goes here about the respective title and icon</item>
+    </string-array>
+</resources>
