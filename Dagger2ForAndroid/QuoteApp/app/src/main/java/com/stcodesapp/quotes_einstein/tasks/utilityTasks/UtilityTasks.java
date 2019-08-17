@@ -6,6 +6,8 @@ public class UtilityTasks
 {
     public static String trimString(String input)
     {
-        return input.substring(0, Constants.MAXIMUM_STRING_LENGTH);
+        if(input.length()>Constants.MAXIMUM_STRING_LENGTH)
+            return input.substring(0, Constants.MAXIMUM_STRING_LENGTH) + Constants.DOTS;
+        return input;
     }
 }

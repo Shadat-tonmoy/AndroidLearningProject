@@ -12,13 +12,24 @@ import android.widget.Toast;
 
 import com.stcodesapp.quotes_einstein.R;
 import com.stcodesapp.quotes_einstein.models.Quotes;
+import com.stcodesapp.quotes_einstein.tasks.utilityTasks.UtilityTasks;
+
 import java.util.List;
 
 public class QuoteListAdapter extends RecyclerView.Adapter<QuoteListAdapter.ViewHolder>
 {
 
+    public interface Listener
+    {
+        void onQuoteClicked(Quotes quotes);
+
+        void onAddToFavClicked(Quotes quotes);
+
+    }
+
     private List<Quotes> quotesList;
     private Activity activity;
+    private Listener listener;
 
     public QuoteListAdapter(Activity activity)
     {
@@ -53,18 +64,22 @@ public class QuoteListAdapter extends RecyclerView.Adapter<QuoteListAdapter.View
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i)
     {
         final Quotes quotes = quotesList.get(i);
-        viewHolder.quoteText.setText(quotes.getQuoteText());
+        viewHolder.quoteText.setText(UtilityTasks.trimString(quotes.getQuoteText()));
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Toast.makeText(activity, "Clicked on "+quotes.getQuoteID(), Toast.LENGTH_SHORT).show();
+            public void onClick(View v)
+            {
+                if(listener!=null)
+                    listener.onQuoteClicked(quotes);
             }
         });
 
         viewHolder.addToFavButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Toast.makeText(activity, "Adding to fav "+quotes.getQuoteID(), Toast.LENGTH_SHORT).show();
+            public void onClick(View v)
+            {
+                if(listener!=null)
+                    listener.onAddToFavClicked(quotes);
             }
         });
     }
@@ -84,5 +99,7 @@ public class QuoteListAdapter extends RecyclerView.Adapter<QuoteListAdapter.View
         notifyDataSetChanged();
     }
 
-
+    public void setListener(Listener listener) {
+        this.listener = listener;
+    }
 }

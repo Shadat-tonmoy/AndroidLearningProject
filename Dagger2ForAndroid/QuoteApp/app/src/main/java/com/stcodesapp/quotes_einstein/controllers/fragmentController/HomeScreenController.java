@@ -3,18 +3,20 @@ package com.stcodesapp.quotes_einstein.controllers.fragmentController;
 import android.os.Bundle;
 
 import com.stcodesapp.quotes_einstein.R;
+import com.stcodesapp.quotes_einstein.common.Logger;
 import com.stcodesapp.quotes_einstein.factory.TasksFactory;
 import com.stcodesapp.quotes_einstein.models.Quotes;
 import com.stcodesapp.quotes_einstein.tasks.databaseTasks.QuoteFetchingTask;
 import com.stcodesapp.quotes_einstein.tasks.navigationTasks.ActivityNavigationTasks;
 import com.stcodesapp.quotes_einstein.tasks.navigationTasks.FragmentNavigationTasks;
 import com.stcodesapp.quotes_einstein.tasks.screenManipulationTasks.HomeScreenManipulationTask;
+import com.stcodesapp.quotes_einstein.ui.adapter.QuoteListAdapter;
 import com.stcodesapp.quotes_einstein.ui.views.screenViews.HomeScreenView;
 import com.stcodesapp.quotes_einstein.ui.views.screens.HomeScreen;
 
 import java.util.List;
 
-public class HomeScreenController implements HomeScreen.Listener, QuoteFetchingTask.Listener
+public class HomeScreenController implements HomeScreen.Listener, QuoteFetchingTask.Listener, QuoteListAdapter.Listener
 {
 
 
@@ -76,5 +78,19 @@ public class HomeScreenController implements HomeScreen.Listener, QuoteFetchingT
     {
         homeScreenManipulationTask.bindQuotes(quotes);
         isQuotesFetched = true;
+    }
+
+    @Override
+    public void onQuoteClicked(Quotes quotes)
+    {
+        Logger.showLog("Clicked ",quotes.toString());
+
+    }
+
+    @Override
+    public void onAddToFavClicked(Quotes quotes)
+    {
+
+
     }
 }

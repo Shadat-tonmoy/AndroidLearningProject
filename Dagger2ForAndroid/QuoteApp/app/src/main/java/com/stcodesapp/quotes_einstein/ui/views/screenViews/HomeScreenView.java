@@ -48,4 +48,9 @@ public class HomeScreenView extends BaseObservableScreenView<HomeScreen.Listener
     public QuoteListAdapter getQuoteListAdapter() {
         return quoteListAdapter;
     }
+
+    public void setQuoteListLstener(QuoteListAdapter.Listener listener)
+    {
+        quoteListAdapter.setListener(listener);
+    }
 }
