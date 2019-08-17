@@ -12,9 +12,11 @@ import com.stcodesapp.quotes_einstein.ui.views.screenViews.fragmentScreenView.Na
 public class ViewFactory {
 
     private final LayoutInflater layoutInflater;
+    private final AdapterFactory adapterFactory;
 
-    public ViewFactory(LayoutInflater layoutInflater) {
+    public ViewFactory(LayoutInflater layoutInflater, AdapterFactory adapterFactory) {
         this.layoutInflater = layoutInflater;
+        this.adapterFactory = adapterFactory;
     }
 
 
@@ -25,7 +27,7 @@ public class ViewFactory {
 
     public HomeScreenView getHomeScreenView(ViewGroup parent)
     {
-        return new HomeScreenView(layoutInflater,parent);
+        return new HomeScreenView(layoutInflater,parent,adapterFactory.getQuoteListAdapter());
     }
 
     public SecondActivityScreenView getSecondaryScreenView(ViewGroup parent)

@@ -11,16 +11,21 @@ import java.util.List;
 
 public class QuoteFetchingTask extends AsyncTask<Void, Void, List<Quotes>>
 {
+
+    public interface Listener
+    {
+        void onQuoteListFetched(List<Quotes> quotes);
+
+    }
+
     private Activity activity;
     private AppDatabase appDatabase;
+    private Listener listener;
 
     public QuoteFetchingTask(Activity activity) {
         this.activity = activity;
         this.appDatabase = AppDatabase.getInstance(activity);
     }
-
-
-
 
     @Override
     protected void onPreExecute() {
@@ -37,9 +42,11 @@ public class QuoteFetchingTask extends AsyncTask<Void, Void, List<Quotes>>
     @Override
     protected void onPostExecute(List<Quotes> quotes) {
         super.onPostExecute(quotes);
-        for(Quotes quote : quotes)
-        {
-            Logger.showLog("Quotes",quote.toString());
-        }
+        if(listener!=null)
+            listener.onQuoteListFetched(quotes);
+    }
+
+    public void setListener(Listener listener) {
+        this.listener = listener;
     }
 }

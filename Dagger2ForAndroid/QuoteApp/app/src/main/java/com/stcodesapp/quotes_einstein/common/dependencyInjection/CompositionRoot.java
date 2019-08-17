@@ -4,14 +4,15 @@ import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 
 import com.stcodesapp.quotes_einstein.common.FragmentFrameHelper;
+import com.stcodesapp.quotes_einstein.factory.AdapterFactory;
 import com.stcodesapp.quotes_einstein.factory.ControllerFactory;
 import com.stcodesapp.quotes_einstein.factory.TasksFactory;
 import com.stcodesapp.quotes_einstein.factory.ViewFactory;
 
 public class CompositionRoot {
 
-    public ViewFactory getViewFactory(LayoutInflater layoutInflater) {
-        return new ViewFactory(layoutInflater);
+    public ViewFactory getViewFactory(LayoutInflater layoutInflater, FragmentActivity fragmentActivity) {
+        return new ViewFactory(layoutInflater, getAdapterFactory(fragmentActivity));
     }
 
     public ControllerFactory getActivityControllerFactory(FragmentActivity activity) {
@@ -30,4 +31,11 @@ public class CompositionRoot {
     public TasksFactory getTasksFactory(FragmentActivity activity, FragmentFrameHelper fragmentFrameHelper) {
         return new TasksFactory(activity,fragmentFrameHelper);
     }
+
+    public AdapterFactory getAdapterFactory(FragmentActivity fragmentActivity)
+    {
+        return new AdapterFactory(fragmentActivity);
+    }
+
+
 }

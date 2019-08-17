@@ -1,6 +1,6 @@
 package com.stcodesapp.quotes_einstein.factory;
 
-import com.stcodesapp.quotes_einstein.controllers.HomeScreenController;
+import com.stcodesapp.quotes_einstein.controllers.fragmentController.HomeScreenController;
 import com.stcodesapp.quotes_einstein.controllers.activityController.MainActivityController;
 import com.stcodesapp.quotes_einstein.controllers.commons.NavigationDrawerController;
 

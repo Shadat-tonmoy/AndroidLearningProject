@@ -37,7 +37,7 @@ public class ControllerCompositionRoot {
 
     public ViewFactory getViewFactory()
     {
-        return compositionRoot.getViewFactory(getLayoutInflater());
+        return compositionRoot.getViewFactory(getLayoutInflater(),activity);
     }
 
     public ControllerFactory getActivityControllerFactory()

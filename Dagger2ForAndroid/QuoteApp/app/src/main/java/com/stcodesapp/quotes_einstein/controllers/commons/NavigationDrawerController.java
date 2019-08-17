@@ -34,7 +34,7 @@ public class NavigationDrawerController implements NavigationDrawerScreen.Listen
         {
             case R.id.home_screen:
                 fragmentNavigationTasks.toHomeScreen();
-                updateToolbarTitle(FragmentTags.HOME_SCREEN);
+                updateToolbarTitle(FragmentTags.HOME);
                 break;
             case R.id.nav_menu_1:
                 fragmentNavigationTasks.toNavigationMenu1Fragment();
@@ -52,7 +52,7 @@ public class NavigationDrawerController implements NavigationDrawerScreen.Listen
         navigationDrawerView.getToolbar().setTitle(title);
         switch (title)
         {
-            case FragmentTags.HOME_SCREEN:
+            case FragmentTags.HOME:
                 navigationDrawerView.checkMenuItem(R.id.home_screen);
                 break;
             case FragmentTags.NAVIGATION_MENU_1:
@@ -71,6 +71,6 @@ public class NavigationDrawerController implements NavigationDrawerScreen.Listen
 
     public void onPostCreate() {
         fragmentNavigationTasks.toHomeScreen();
-        updateToolbarTitle(FragmentTags.HOME_SCREEN);
+        updateToolbarTitle(FragmentTags.HOME);
     }
 }

@@ -11,12 +11,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.stcodesapp.quotes_einstein.R;
-import com.stcodesapp.quotes_einstein.controllers.HomeScreenController;
+import com.stcodesapp.quotes_einstein.controllers.fragmentController.HomeScreenController;
+import com.stcodesapp.quotes_einstein.ui.views.screenViews.HomeScreenView;
 import com.stcodesapp.quotes_einstein.ui.views.screens.HomeScreen;
 
 public class HomeScreenFragment extends BaseFragment {
 
-    private HomeScreen homeScreenView;
+    private HomeScreenView homeScreenView;
     private HomeScreenController homeScreenController;
 
     public static HomeScreenFragment newInstance()

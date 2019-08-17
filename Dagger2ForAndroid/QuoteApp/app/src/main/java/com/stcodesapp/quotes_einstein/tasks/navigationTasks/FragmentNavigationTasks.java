@@ -17,7 +17,7 @@ public class FragmentNavigationTasks {
 
     public void toHomeScreen()
     {
-        fragmentFrameHelper.replaceFragmentAndClearBackstack(HomeScreenFragment.newInstance(),FragmentTags.HOME_SCREEN);
+        fragmentFrameHelper.replaceFragmentAndClearBackstack(HomeScreenFragment.newInstance(),FragmentTags.HOME);
     }
 
 

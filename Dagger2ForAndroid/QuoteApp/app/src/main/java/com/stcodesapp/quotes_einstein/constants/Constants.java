@@ -15,4 +15,5 @@ public class Constants
     public static final String INVERSE_AI_MAIL= "inverseaibd@gmail.com";
     public static final String EMAIL_ADDRESS= "mailto:"+INVERSE_AI_MAIL;
     public static final String APP_DB_NAME = "einstein_quotes_db";
+    public static final int MAXIMUM_STRING_LENGTH = 25;
 }
