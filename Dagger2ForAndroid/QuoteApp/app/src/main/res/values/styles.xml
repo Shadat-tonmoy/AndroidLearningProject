@@ -22,6 +22,14 @@
         <item name="android:windowTranslucentStatus">true</item>
     </style>
 
+    <style name="quoteDetailButtonStyle">
+
+        <item name="android:padding">@dimen/default_padding</item>
+        <item name="android:drawablePadding">@dimen/default_padding</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+
+    </style>
+
 
 
 </resources>

@@ -8,6 +8,7 @@ import com.stcodesapp.quotes_einstein.ui.views.screenViews.HomeScreenView;
 import com.stcodesapp.quotes_einstein.ui.views.screenViews.SecondActivityScreenView;
 import com.stcodesapp.quotes_einstein.ui.views.screenViews.fragmentScreenView.NavigationMenu1FragmentScreenView;
 import com.stcodesapp.quotes_einstein.ui.views.screenViews.fragmentScreenView.NavigationMenu2FragmentScreenView;
+import com.stcodesapp.quotes_einstein.ui.views.screenViews.fragmentScreenView.QuoteDetailScreenView;
 
 public class ViewFactory {
 
@@ -28,6 +29,11 @@ public class ViewFactory {
     public HomeScreenView getHomeScreenView(ViewGroup parent)
     {
         return new HomeScreenView(layoutInflater,parent,adapterFactory.getQuoteListAdapter());
+    }
+
+    public QuoteDetailScreenView getQuoteDetailScreenView(ViewGroup parent)
+    {
+        return new QuoteDetailScreenView(layoutInflater, parent);
     }
 
     public SecondActivityScreenView getSecondaryScreenView(ViewGroup parent)

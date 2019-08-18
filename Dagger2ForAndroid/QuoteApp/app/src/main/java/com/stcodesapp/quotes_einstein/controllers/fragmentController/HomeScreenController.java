@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import com.stcodesapp.quotes_einstein.R;
 import com.stcodesapp.quotes_einstein.common.Logger;
+import com.stcodesapp.quotes_einstein.constants.Tags;
 import com.stcodesapp.quotes_einstein.factory.TasksFactory;
 import com.stcodesapp.quotes_einstein.models.Quotes;
 import com.stcodesapp.quotes_einstein.tasks.databaseTasks.QuoteFetchingTask;
@@ -83,8 +84,9 @@ public class HomeScreenController implements HomeScreen.Listener, QuoteFetchingT
     @Override
     public void onQuoteClicked(Quotes quotes)
     {
-        Logger.showLog("Clicked ",quotes.toString());
-
+        Bundle args = new Bundle();
+        args.putSerializable(Tags.QUOTES_BUNDLE_KEY, quotes);
+        fragmentNavigationTasks.toQuoteDetailFragment(args);
     }
 
     @Override

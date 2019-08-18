@@ -13,8 +13,8 @@ public class Constants
     public static final String SHARE_VIA= "Subject Via";
     public static final String SHARE_BODY= "Check The Awesome Language Translation Application for Free. Get it from ";
     public static final String EMAIL_SUBJECT= "Email Support For ";
-    public static final String INVERSE_AI_MAIL= "inverseaibd@gmail.com";
-    public static final String EMAIL_ADDRESS= "mailto:"+INVERSE_AI_MAIL;
+    public static final String PUBLISHER_MAIL = "stappsbd@gmail.com";
+    public static final String EMAIL_ADDRESS= "mailto:"+ PUBLISHER_MAIL;
     public static final String APP_DB_NAME = "einstein_quotes_db";
-    public static final int MAXIMUM_STRING_LENGTH = 25;
+    public static final int MAXIMUM_STRING_LENGTH = 35;
 }

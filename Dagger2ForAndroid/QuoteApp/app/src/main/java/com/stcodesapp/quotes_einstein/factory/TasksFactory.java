@@ -7,6 +7,7 @@ import com.stcodesapp.quotes_einstein.tasks.databaseTasks.QuoteInsertTask;
 import com.stcodesapp.quotes_einstein.tasks.navigationTasks.ActivityNavigationTasks;
 import com.stcodesapp.quotes_einstein.tasks.navigationTasks.FragmentNavigationTasks;
 import com.stcodesapp.quotes_einstein.tasks.screenManipulationTasks.HomeScreenManipulationTask;
+import com.stcodesapp.quotes_einstein.tasks.screenManipulationTasks.QuoteDetailScreenManipulationTask;
 import com.stcodesapp.quotes_einstein.tasks.utilityTasks.ClipboardTasks;
 import com.stcodesapp.quotes_einstein.tasks.utilityTasks.SharingTasks;
 
@@ -32,7 +33,7 @@ public class TasksFactory {
 
     public FragmentNavigationTasks getFragmentNavigationTasks()
     {
-        return new FragmentNavigationTasks(fragmentFrameHelper);
+        return new FragmentNavigationTasks(fragmentFrameHelper, activity);
     }
 
     public SharingTasks getSharingTasks()
@@ -58,6 +59,11 @@ public class TasksFactory {
     public HomeScreenManipulationTask getHomeScreenManipulationTask()
     {
         return new HomeScreenManipulationTask(activity);
+    }
+
+    public QuoteDetailScreenManipulationTask getQuoteDetailScreenManipulationTask()
+    {
+        return new QuoteDetailScreenManipulationTask(activity);
     }
 
 

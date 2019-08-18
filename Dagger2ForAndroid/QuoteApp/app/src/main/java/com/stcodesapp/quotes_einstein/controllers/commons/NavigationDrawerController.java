@@ -1,6 +1,6 @@
 package com.stcodesapp.quotes_einstein.controllers.commons;
 import com.stcodesapp.quotes_einstein.R;
-import com.stcodesapp.quotes_einstein.constants.FragmentTags;
+import com.stcodesapp.quotes_einstein.constants.Tags;
 import com.stcodesapp.quotes_einstein.tasks.navigationTasks.FragmentNavigationTasks;
 import com.stcodesapp.quotes_einstein.ui.commons.NavigationDrawerView;
 import com.stcodesapp.quotes_einstein.ui.views.screens.commons.NavigationDrawerScreen;
@@ -34,15 +34,15 @@ public class NavigationDrawerController implements NavigationDrawerScreen.Listen
         {
             case R.id.home_screen:
                 fragmentNavigationTasks.toHomeScreen();
-                updateToolbarTitle(FragmentTags.HOME);
+                updateToolbarTitle(Tags.HOME);
                 break;
             case R.id.nav_menu_1:
                 fragmentNavigationTasks.toNavigationMenu1Fragment();
-                updateToolbarTitle(FragmentTags.NAVIGATION_MENU_1);
+                updateToolbarTitle(Tags.NAVIGATION_MENU_1);
                 break;
             case R.id.nav_menu_2:
                 fragmentNavigationTasks.toNavigationMenu2Fragment();
-                updateToolbarTitle(FragmentTags.NAVIGATION_MENU_2);
+                updateToolbarTitle(Tags.NAVIGATION_MENU_2);
                 break;
         }
     }
@@ -52,13 +52,13 @@ public class NavigationDrawerController implements NavigationDrawerScreen.Listen
         navigationDrawerView.getToolbar().setTitle(title);
         switch (title)
         {
-            case FragmentTags.HOME:
+            case Tags.HOME:
                 navigationDrawerView.checkMenuItem(R.id.home_screen);
                 break;
-            case FragmentTags.NAVIGATION_MENU_1:
+            case Tags.NAVIGATION_MENU_1:
                 navigationDrawerView.checkMenuItem(R.id.nav_menu_1);
                 break;
-            case FragmentTags.NAVIGATION_MENU_2:
+            case Tags.NAVIGATION_MENU_2:
                 navigationDrawerView.checkMenuItem(R.id.nav_menu_2);
                 break;
         }
@@ -71,6 +71,6 @@ public class NavigationDrawerController implements NavigationDrawerScreen.Listen
 
     public void onPostCreate() {
         fragmentNavigationTasks.toHomeScreen();
-        updateToolbarTitle(FragmentTags.HOME);
+        updateToolbarTitle(Tags.HOME);
     }
 }
