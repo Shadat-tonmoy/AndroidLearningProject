@@ -34,7 +34,7 @@ public class HomeScreenFragment extends BaseFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         homeScreenView = getCompositionRoot().getViewFactory().getHomeScreenView(null);
-        homeScreenController = getCompositionRoot().getFragmentControllerFactory().getHomeScreenController();
+        homeScreenController = getCompositionRoot().getControllerFactory().getHomeScreenController();
         homeScreenView.setQuoteListLstener(homeScreenController);
         homeScreenController.bindView(homeScreenView);
         setHasOptionsMenu(true);

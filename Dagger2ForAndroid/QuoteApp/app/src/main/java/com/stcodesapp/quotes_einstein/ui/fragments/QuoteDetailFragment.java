@@ -42,7 +42,7 @@ public class QuoteDetailFragment extends BaseFragment
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
         quoteDetailScreenView = getCompositionRoot().getViewFactory().getQuoteDetailScreenView(container);
-        quoteDetailController = getCompositionRoot().getFragmentControllerFactory().getQuoteDetailController();
+        quoteDetailController = getCompositionRoot().getControllerFactory().getQuoteDetailController();
         getQuotes();
         quoteDetailController.bindView(quoteDetailScreenView);
         quoteDetailController.bindQuotes(quotes);

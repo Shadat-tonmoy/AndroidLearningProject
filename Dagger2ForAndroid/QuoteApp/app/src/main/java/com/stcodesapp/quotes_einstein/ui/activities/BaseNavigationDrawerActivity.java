@@ -23,7 +23,7 @@ public class BaseNavigationDrawerActivity extends BaseActivity implements Fragme
     private void initNavigationDrawerLayout()
     {
         navigationDrawerView = getCompositionRoot().getViewFactory().getNavigationDrawerView(null);
-        navigationDrawerController = getCompositionRoot().getFragmentControllerFactory().getNavigationDrawerController();
+        navigationDrawerController = getCompositionRoot().getControllerFactory().getNavigationDrawerController();
         navigationDrawerController.bindView(navigationDrawerView);
         setActionBar();
         setContentView(navigationDrawerView.getRootView());

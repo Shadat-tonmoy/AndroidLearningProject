@@ -21,7 +21,7 @@ public class SecondActivity extends BaseActivity {
     private void init()
     {
         secondActivityScreenView = getCompositionRoot().getViewFactory().getSecondaryScreenView(null);
-        secondActivityController = getCompositionRoot().getActivityControllerFactory().getSecondActivityController();
+        secondActivityController = getCompositionRoot().getControllerFactory().getSecondActivityController();
         secondActivityController.bindView(secondActivityScreenView);
         setContentView(secondActivityScreenView.getRootView());
     }

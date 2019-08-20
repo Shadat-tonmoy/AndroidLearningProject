@@ -10,15 +10,18 @@ import com.stcodesapp.quotes_einstein.controllers.commons.FragmentFrameWrapper;
 import com.stcodesapp.quotes_einstein.factory.ControllerFactory;
 import com.stcodesapp.quotes_einstein.factory.TasksFactory;
 import com.stcodesapp.quotes_einstein.factory.ViewFactory;
+import com.stcodesapp.quotes_einstein.ui.dialog.DialogManager;
 
-public class ControllerCompositionRoot {
+public class ActivityCompositionRoot {
 
     private CompositionRoot compositionRoot;
     private FragmentActivity activity;
+    private FragmentManager fragmentManager;
 
-    public ControllerCompositionRoot(CompositionRoot compositionRoot, FragmentActivity activity) {
+    public ActivityCompositionRoot(CompositionRoot compositionRoot, FragmentActivity activity, FragmentManager fragmentManager) {
         this.compositionRoot = compositionRoot;
         this.activity = activity;
+        this.fragmentManager = fragmentManager;
     }
 
     private FragmentActivity getActivity() {
@@ -40,24 +43,14 @@ public class ControllerCompositionRoot {
         return compositionRoot.getViewFactory(getLayoutInflater(),activity);
     }
 
-    public ControllerFactory getActivityControllerFactory()
+    public ControllerFactory getControllerFactory()
     {
-        return compositionRoot.getActivityControllerFactory(getActivity());
+        return compositionRoot.getControllerFactory(getActivity(),getFragmentFrameHelper());
     }
 
-    public ControllerFactory getFragmentControllerFactory()
-    {
-        return compositionRoot.getFragmentControllerFactory(getActivity(),getFragmentFrameHelper());
-    }
-
-    public TasksFactory getActivityTasksFactory()
+    public TasksFactory getTasksFactory()
     {
         return compositionRoot.getTasksFactory(getActivity());
-    }
-
-    public TasksFactory getFragmentTasksFactory()
-    {
-        return compositionRoot.getTasksFactory(getActivity(),getFragmentFrameHelper());
     }
 
     public FragmentManager getFragmentManager()
@@ -73,6 +66,11 @@ public class ControllerCompositionRoot {
     public FragmentFrameHelper getFragmentFrameHelper()
     {
         return new FragmentFrameHelper(getActivity(),getFragmentFrameWrapper(),getFragmentManager());
+    }
+
+    public DialogManager getDialogManager()
+    {
+        return new DialogManager(fragmentManager,activity);
     }
 
 

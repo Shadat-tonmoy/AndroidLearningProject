@@ -34,7 +34,7 @@ public class MainActivity extends BaseNavigationDrawerActivity {
 
     private void getQuotes()
     {
-        getCompositionRoot().getActivityTasksFactory().getQuoteFetchingTask().execute();
+        getCompositionRoot().getTasksFactory().getQuoteFetchingTask().execute();
 
     }
 
@@ -147,7 +147,7 @@ public class MainActivity extends BaseNavigationDrawerActivity {
         quotes.add(new Quotes("When you look at yourself from a universal standpoint, something inside always reminds or informs you that there are bigger and better things to worry about."));
 
         quotes.add(new Quotes("Paper is to write things down that we need to remember. Our brains are used to think."));
-        QuoteInsertTask quoteInsertTask = getCompositionRoot().getActivityTasksFactory().getQuoteInsertTask();
+        QuoteInsertTask quoteInsertTask = getCompositionRoot().getTasksFactory().getQuoteInsertTask();
         quoteInsertTask.execute(quotes);
 
     }
