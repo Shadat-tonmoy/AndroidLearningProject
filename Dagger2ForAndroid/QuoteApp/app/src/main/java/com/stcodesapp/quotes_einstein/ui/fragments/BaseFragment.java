@@ -3,16 +3,16 @@ package com.stcodesapp.quotes_einstein.ui.fragments;
 import android.support.v4.app.Fragment;
 
 import com.stcodesapp.quotes_einstein.common.CustomApplication;
-import com.stcodesapp.quotes_einstein.common.dependencyInjection.FragmentCompositionRoot;
+import com.stcodesapp.quotes_einstein.common.dependencyInjection.ControllerCompositionRoot;
 
 public class BaseFragment extends Fragment {
 
-    private FragmentCompositionRoot compositionRoot;
+    private ControllerCompositionRoot compositionRoot;
 
-    public FragmentCompositionRoot getCompositionRoot() {
+    public ControllerCompositionRoot getCompositionRoot() {
         if(compositionRoot ==null)
         {
-            compositionRoot = new FragmentCompositionRoot(
+            compositionRoot = new ControllerCompositionRoot(
                     ((CustomApplication) requireActivity().getApplication()).getCompositionRoot(),
                     requireActivity(), requireActivity().getSupportFragmentManager());
         }

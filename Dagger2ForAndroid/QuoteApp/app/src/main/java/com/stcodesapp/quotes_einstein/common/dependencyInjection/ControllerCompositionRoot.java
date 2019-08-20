@@ -12,13 +12,13 @@ import com.stcodesapp.quotes_einstein.factory.TasksFactory;
 import com.stcodesapp.quotes_einstein.factory.ViewFactory;
 import com.stcodesapp.quotes_einstein.ui.dialog.DialogManager;
 
-public class ActivityCompositionRoot {
+public class ControllerCompositionRoot {
 
     private CompositionRoot compositionRoot;
     private FragmentActivity activity;
     private FragmentManager fragmentManager;
 
-    public ActivityCompositionRoot(CompositionRoot compositionRoot, FragmentActivity activity, FragmentManager fragmentManager) {
+    public ControllerCompositionRoot(CompositionRoot compositionRoot, FragmentActivity activity, FragmentManager fragmentManager) {
         this.compositionRoot = compositionRoot;
         this.activity = activity;
         this.fragmentManager = fragmentManager;
@@ -50,7 +50,7 @@ public class ActivityCompositionRoot {
 
     public TasksFactory getTasksFactory()
     {
-        return compositionRoot.getTasksFactory(getActivity());
+        return compositionRoot.getTasksFactory(getActivity(), getFragmentFrameHelper());
     }
 
     public FragmentManager getFragmentManager()

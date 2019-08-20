@@ -3,16 +3,16 @@ package com.stcodesapp.quotes_einstein.ui.activities;
 import android.support.v7.app.AppCompatActivity;
 
 import com.stcodesapp.quotes_einstein.common.CustomApplication;
-import com.stcodesapp.quotes_einstein.common.dependencyInjection.ActivityCompositionRoot;
+import com.stcodesapp.quotes_einstein.common.dependencyInjection.ControllerCompositionRoot;
 
 public class BaseActivity extends AppCompatActivity {
 
-    private ActivityCompositionRoot compositionRoot;
+    private ControllerCompositionRoot compositionRoot;
 
-    public ActivityCompositionRoot getCompositionRoot() {
+    public ControllerCompositionRoot getCompositionRoot() {
         if(compositionRoot ==null)
         {
-            compositionRoot = new ActivityCompositionRoot(
+            compositionRoot = new ControllerCompositionRoot(
                     ((CustomApplication) getApplication()).getCompositionRoot(),
                     this, getSupportFragmentManager());
         }

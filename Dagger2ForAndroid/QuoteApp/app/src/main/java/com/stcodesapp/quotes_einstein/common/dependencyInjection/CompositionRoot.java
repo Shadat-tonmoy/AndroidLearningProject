@@ -15,17 +15,8 @@ public class CompositionRoot {
         return new ViewFactory(layoutInflater, getAdapterFactory(fragmentActivity));
     }
 
-    public ControllerFactory getControllerFactory(FragmentActivity activity) {
-        return new ControllerFactory(getTasksFactory(activity), activity);
-    }
-
-
     public ControllerFactory getControllerFactory(FragmentActivity activity,FragmentFrameHelper fragmentFrameHelper) {
         return new ControllerFactory(getTasksFactory(activity,fragmentFrameHelper), activity);
-    }
-
-    public TasksFactory getTasksFactory(FragmentActivity activity) {
-        return new TasksFactory(activity);
     }
 
     public TasksFactory getTasksFactory(FragmentActivity activity, FragmentFrameHelper fragmentFrameHelper) {
