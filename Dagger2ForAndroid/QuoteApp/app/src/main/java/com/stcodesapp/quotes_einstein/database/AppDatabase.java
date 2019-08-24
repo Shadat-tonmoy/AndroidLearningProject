@@ -6,6 +6,7 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
+import com.stcodesapp.quotes_einstein.common.CustomApplication;
 import com.stcodesapp.quotes_einstein.constants.Constants;
 import com.stcodesapp.quotes_einstein.database.dao.QuoteDao;
 import com.stcodesapp.quotes_einstein.models.Quotes;
@@ -18,12 +19,12 @@ public abstract class AppDatabase extends RoomDatabase
     public abstract QuoteDao quoteDao();
 
 
-    public static AppDatabase getInstance(Activity activity)
+    public static AppDatabase getInstance(CustomApplication application)
     {
         synchronized (AppDatabase.class)
         {
             if(database == null)
-                database = Room.databaseBuilder(activity, AppDatabase.class, Constants.APP_DB_NAME)
+                database = Room.databaseBuilder(application, AppDatabase.class, Constants.APP_DB_NAME)
                         .fallbackToDestructiveMigration()
                         .build();
             return database;

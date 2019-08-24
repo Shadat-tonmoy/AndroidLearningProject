@@ -1,7 +1,8 @@
 package com.stcodesapp.quotes_einstein.factory;
 
 import android.support.v4.app.FragmentActivity;
-import com.stcodesapp.quotes_einstein.common.FragmentFrameHelper;
+import com.stcodesapp.quotes_einstein.common.FragmentNavigationHelper;
+import com.stcodesapp.quotes_einstein.database.AppDatabase;
 import com.stcodesapp.quotes_einstein.tasks.databaseTasks.QuoteFetchingTask;
 import com.stcodesapp.quotes_einstein.tasks.databaseTasks.QuoteInsertTask;
 import com.stcodesapp.quotes_einstein.tasks.navigationTasks.ActivityNavigationTasks;
@@ -14,16 +15,19 @@ import com.stcodesapp.quotes_einstein.tasks.utilityTasks.SharingTasks;
 public class TasksFactory {
 
     private FragmentActivity activity;
-    private FragmentFrameHelper fragmentFrameHelper;
+    private FragmentNavigationHelper fragmentNavigationHelper;
+    private AppDatabase appDatabase;
 
-    public TasksFactory(FragmentActivity activity, FragmentFrameHelper fragmentFrameHelper) {
+    public TasksFactory(FragmentActivity activity, FragmentNavigationHelper fragmentNavigationHelper, AppDatabase appDatabase) {
         this.activity = activity;
-        this.fragmentFrameHelper= fragmentFrameHelper;
+        this.fragmentNavigationHelper = fragmentNavigationHelper;
+        this.appDatabase = appDatabase;
     }
 
-    public TasksFactory(FragmentActivity activity) {
+    public TasksFactory(FragmentActivity activity, AppDatabase appDatabase) {
         this.activity = activity;
 
+        this.appDatabase = appDatabase;
     }
 
     public ActivityNavigationTasks getActivityNavigationTasks()
@@ -33,7 +37,7 @@ public class TasksFactory {
 
     public FragmentNavigationTasks getFragmentNavigationTasks()
     {
-        return new FragmentNavigationTasks(fragmentFrameHelper, activity);
+        return new FragmentNavigationTasks(fragmentNavigationHelper, activity);
     }
 
     public SharingTasks getSharingTasks()
@@ -48,12 +52,12 @@ public class TasksFactory {
 
     public QuoteInsertTask getQuoteInsertTask()
     {
-        return new QuoteInsertTask(activity);
+        return new QuoteInsertTask(activity,appDatabase);
     }
 
     public QuoteFetchingTask getQuoteFetchingTask()
     {
-        return new QuoteFetchingTask(activity);
+        return new QuoteFetchingTask(activity,appDatabase);
     }
 
     public HomeScreenManipulationTask getHomeScreenManipulationTask()

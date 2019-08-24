@@ -3,19 +3,28 @@ package com.stcodesapp.quotes_einstein.ui.activities;
 import android.support.v7.app.AppCompatActivity;
 
 import com.stcodesapp.quotes_einstein.common.CustomApplication;
-import com.stcodesapp.quotes_einstein.common.dependencyInjection.ControllerCompositionRoot;
+import com.stcodesapp.quotes_einstein.common.dependencyInjection.application.ApplicationComponent;
+import com.stcodesapp.quotes_einstein.common.dependencyInjection.presentation.DaggerPresentationComponent;
+import com.stcodesapp.quotes_einstein.common.dependencyInjection.presentation.PresentationComponent;
+import com.stcodesapp.quotes_einstein.common.dependencyInjection.presentation.PresentationModule;
 
 public class BaseActivity extends AppCompatActivity {
 
-    private ControllerCompositionRoot compositionRoot;
+    private PresentationComponent presentationComponent;
 
-    public ControllerCompositionRoot getCompositionRoot() {
-        if(compositionRoot ==null)
+    public PresentationComponent getCompositionRoot() {
+        if(presentationComponent==null)
         {
-            compositionRoot = new ControllerCompositionRoot(
-                    ((CustomApplication) getApplication()).getCompositionRoot(),
-                    this, getSupportFragmentManager());
+            presentationComponent= DaggerPresentationComponent
+                    .builder()
+                    .presentationModule(new PresentationModule(this,getApplicationComponent()))
+                    .build();
         }
-        return compositionRoot;
+        return presentationComponent;
+    }
+
+    public ApplicationComponent getApplicationComponent()
+    {
+        return ((CustomApplication)getApplication()).getApplicationComponent();
     }
 }

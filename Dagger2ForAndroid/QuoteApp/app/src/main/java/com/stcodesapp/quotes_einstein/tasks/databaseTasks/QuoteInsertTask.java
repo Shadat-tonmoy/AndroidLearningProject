@@ -15,9 +15,9 @@ public class QuoteInsertTask extends AsyncTask<List<Quotes>, Void, Void>
     private Activity activity;
     private AppDatabase appDatabase;
 
-    public QuoteInsertTask(Activity activity) {
+    public QuoteInsertTask(Activity activity,AppDatabase appDatabase) {
         this.activity = activity;
-        this.appDatabase = AppDatabase.getInstance(activity);
+        this.appDatabase = appDatabase;
     }
 
 

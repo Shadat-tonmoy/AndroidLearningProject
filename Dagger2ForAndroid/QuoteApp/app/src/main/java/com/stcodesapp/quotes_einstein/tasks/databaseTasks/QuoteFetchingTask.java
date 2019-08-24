@@ -22,9 +22,9 @@ public class QuoteFetchingTask extends AsyncTask<Void, Void, List<Quotes>>
     private AppDatabase appDatabase;
     private Listener listener;
 
-    public QuoteFetchingTask(Activity activity) {
+    public QuoteFetchingTask(Activity activity,AppDatabase appDatabase) {
         this.activity = activity;
-        this.appDatabase = AppDatabase.getInstance(activity);
+        this.appDatabase = appDatabase;
     }
 
     @Override

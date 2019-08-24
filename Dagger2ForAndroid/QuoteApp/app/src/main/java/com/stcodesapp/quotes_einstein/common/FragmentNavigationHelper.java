@@ -7,14 +7,14 @@ import android.support.v4.app.FragmentTransaction;
 
 import com.stcodesapp.quotes_einstein.controllers.commons.FragmentFrameWrapper;
 
-public class FragmentFrameHelper {
+public class FragmentNavigationHelper {
 
 
     private final Activity mActivity;
     private final FragmentFrameWrapper mFragmentFrameWrapper;
     private final FragmentManager mFragmentManager;
 
-    public FragmentFrameHelper(Activity activity, FragmentFrameWrapper fragmentFrameWrapper, FragmentManager fragmentManager) {
+    public FragmentNavigationHelper(Activity activity, FragmentFrameWrapper fragmentFrameWrapper, FragmentManager fragmentManager) {
         mActivity = activity;
         mFragmentFrameWrapper = fragmentFrameWrapper;
         mFragmentManager = fragmentManager;
