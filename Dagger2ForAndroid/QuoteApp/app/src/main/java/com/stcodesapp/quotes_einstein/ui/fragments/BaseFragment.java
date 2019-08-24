@@ -18,7 +18,8 @@ public class BaseFragment extends Fragment
         {
             presentationComponent = DaggerPresentationComponent
                     .builder()
-                    .presentationModule(new PresentationModule(requireActivity(),getApplicationComponent()))
+                    .presentationModule(new PresentationModule(requireActivity()))
+                    .applicationComponent(getApplicationComponent())
                     .build();
         }
         return presentationComponent;

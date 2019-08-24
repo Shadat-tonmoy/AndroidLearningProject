@@ -17,7 +17,8 @@ public class BaseActivity extends AppCompatActivity {
         {
             presentationComponent= DaggerPresentationComponent
                     .builder()
-                    .presentationModule(new PresentationModule(this,getApplicationComponent()))
+                    .presentationModule(new PresentationModule(this))
+                    .applicationComponent(getApplicationComponent())
                     .build();
         }
         return presentationComponent;

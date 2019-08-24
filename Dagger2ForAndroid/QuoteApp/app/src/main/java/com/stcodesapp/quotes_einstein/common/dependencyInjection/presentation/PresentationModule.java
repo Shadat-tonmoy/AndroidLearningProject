@@ -21,11 +21,10 @@ public class PresentationModule
 {
 
     private final FragmentActivity activity;
-    private final ApplicationComponent applicationComponent;
+    /*private final ApplicationComponent applicationComponent;*/
 
-    public PresentationModule(FragmentActivity activity, ApplicationComponent applicationComponent) {
+    public PresentationModule(FragmentActivity activity) {
         this.activity = activity;
-        this.applicationComponent = applicationComponent;
     }
 
     //these dependencies resides inside activity lifecycle
@@ -80,9 +79,9 @@ public class PresentationModule
         return new FragmentNavigationHelper(activity,fragmentFrameWrapper,fragmentManager);
     }
 
-    @Provides
+    /*@Provides
     AppDatabase getAppDatabase()
     {
         return applicationComponent.getAppDatabase();
-    }
+    }*/
 }
