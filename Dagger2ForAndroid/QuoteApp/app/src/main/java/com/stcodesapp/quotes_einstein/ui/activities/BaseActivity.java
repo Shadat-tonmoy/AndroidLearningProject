@@ -12,7 +12,7 @@ public class BaseActivity extends AppCompatActivity {
 
     private PresentationComponent presentationComponent;
 
-    public PresentationComponent getCompositionRoot() {
+    public PresentationComponent getPresentationComponent() {
         if(presentationComponent==null)
         {
             presentationComponent= DaggerPresentationComponent

@@ -12,13 +12,22 @@ import android.view.ViewGroup;
 
 import com.stcodesapp.quotes_einstein.R;
 import com.stcodesapp.quotes_einstein.controllers.fragmentController.HomeScreenController;
+import com.stcodesapp.quotes_einstein.factory.ControllerFactory;
+import com.stcodesapp.quotes_einstein.factory.ViewFactory;
 import com.stcodesapp.quotes_einstein.ui.views.screenViews.HomeScreenView;
-import com.stcodesapp.quotes_einstein.ui.views.screens.HomeScreen;
+
+import javax.inject.Inject;
 
 public class HomeScreenFragment extends BaseFragment {
 
+
+    @Inject ViewFactory viewFactory;
+    @Inject ControllerFactory controllerFactory;
+
+
     private HomeScreenView homeScreenView;
     private HomeScreenController homeScreenController;
+
 
     public static HomeScreenFragment newInstance()
     {
@@ -33,12 +42,18 @@ public class HomeScreenFragment extends BaseFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        homeScreenView = getCompositionRoot().getViewFactory().getHomeScreenView(null);
-        homeScreenController = getCompositionRoot().getControllerFactory().getHomeScreenController();
+        initComponents();
+        return homeScreenView.getRootView();
+    }
+
+    private void initComponents()
+    {
+        getPresentationComponent().inject(this);
+        homeScreenView = viewFactory.getHomeScreenView(null);
+        homeScreenController = controllerFactory.getHomeScreenController();
         homeScreenView.setQuoteListLstener(homeScreenController);
         homeScreenController.bindView(homeScreenView);
         setHasOptionsMenu(true);
-        return homeScreenView.getRootView();
     }
 
 

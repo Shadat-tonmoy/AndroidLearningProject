@@ -11,13 +11,18 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.stcodesapp.quotes_einstein.R;
+import com.stcodesapp.quotes_einstein.factory.ControllerFactory;
+import com.stcodesapp.quotes_einstein.factory.ViewFactory;
 import com.stcodesapp.quotes_einstein.ui.views.screenViews.fragmentScreenView.NavigationMenu1FragmentScreenView;
+
+import javax.inject.Inject;
 
 public class NavigationMenu1Fragment extends BaseFragment {
 
-    private NavigationMenu1FragmentScreenView navigationMenu1FragmentScreenView
-            ;
-//    private SeconFr secondaryScreenController;
+    @Inject ViewFactory viewFactory;
+    @Inject ControllerFactory controllerFactory;
+
+    private NavigationMenu1FragmentScreenView navigationMenu1FragmentScreenView;
 
     public static NavigationMenu1Fragment newInstance()
     {
@@ -31,11 +36,8 @@ public class NavigationMenu1Fragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        navigationMenu1FragmentScreenView = getCompositionRoot().getViewFactory().getNavigationMenu1Screen(null);
-//        secondaryScreenController= getCompositionRoot().getFragmentControllerFactory().getSecondaryController();
-//        secondaryScreenController.bindView((SecondActivityScreenView) secondaryActivityScreenView);
-//        ((AppCompatActivity)requireActivity()).setSupportActionBar(secondFragmentScreenView.getToolbar());
+        getPresentationComponent().inject(this);
+        navigationMenu1FragmentScreenView = viewFactory.getNavigationMenu1Screen(null);
         setHasOptionsMenu(true);
         return navigationMenu1FragmentScreenView.getRootView();
     }
@@ -44,24 +46,23 @@ public class NavigationMenu1Fragment extends BaseFragment {
     @Override
     public void onStart() {
         super.onStart();
-//        secondaryScreenController.onStart();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-//        secondaryScreenController.onStop();
     }
 
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
+    {
         inflater.inflate(R.menu.home_popup_menu,menu);
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-//        secondaryScreenController.onOptionMenuClicked(item.getItemId());
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
         return true;
     }
 }

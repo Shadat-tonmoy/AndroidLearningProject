@@ -3,15 +3,19 @@ package com.stcodesapp.quotes_einstein.ui.activities;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
-import com.stcodesapp.quotes_einstein.controllers.activityController.MainActivityController;
+import com.stcodesapp.quotes_einstein.factory.TasksFactory;
 import com.stcodesapp.quotes_einstein.models.Quotes;
 import com.stcodesapp.quotes_einstein.tasks.databaseTasks.QuoteInsertTask;
-import com.stcodesapp.quotes_einstein.tasks.navigationTasks.FragmentNavigationTasks;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 public class MainActivity extends BaseNavigationDrawerActivity {
+
+
+    @Inject TasksFactory tasksFactory;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -34,7 +38,8 @@ public class MainActivity extends BaseNavigationDrawerActivity {
 
     private void getQuotes()
     {
-        getCompositionRoot().getTasksFactory().getQuoteFetchingTask().execute();
+        getPresentationComponent().inject(this);
+        tasksFactory.getQuoteFetchingTask().execute();
 
     }
 
@@ -147,7 +152,7 @@ public class MainActivity extends BaseNavigationDrawerActivity {
         quotes.add(new Quotes("When you look at yourself from a universal standpoint, something inside always reminds or informs you that there are bigger and better things to worry about."));
 
         quotes.add(new Quotes("Paper is to write things down that we need to remember. Our brains are used to think."));
-        QuoteInsertTask quoteInsertTask = getCompositionRoot().getTasksFactory().getQuoteInsertTask();
+        QuoteInsertTask quoteInsertTask = tasksFactory.getQuoteInsertTask();
         quoteInsertTask.execute(quotes);
 
     }

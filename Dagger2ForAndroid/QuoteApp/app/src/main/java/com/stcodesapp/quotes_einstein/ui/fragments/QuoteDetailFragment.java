@@ -10,11 +10,20 @@ import android.view.ViewGroup;
 
 import com.stcodesapp.quotes_einstein.constants.Tags;
 import com.stcodesapp.quotes_einstein.controllers.fragmentController.QuoteDetailController;
+import com.stcodesapp.quotes_einstein.factory.ControllerFactory;
+import com.stcodesapp.quotes_einstein.factory.ViewFactory;
 import com.stcodesapp.quotes_einstein.models.Quotes;
 import com.stcodesapp.quotes_einstein.ui.views.screenViews.fragmentScreenView.QuoteDetailScreenView;
 
+import javax.inject.Inject;
+
 public class QuoteDetailFragment extends BaseFragment
 {
+
+
+    @Inject ViewFactory viewFactory;
+    @Inject ControllerFactory controllerFactory;
+
 
     private QuoteDetailScreenView quoteDetailScreenView;
     private QuoteDetailController quoteDetailController;
@@ -41,8 +50,9 @@ public class QuoteDetailFragment extends BaseFragment
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
-        quoteDetailScreenView = getCompositionRoot().getViewFactory().getQuoteDetailScreenView(container);
-        quoteDetailController = getCompositionRoot().getControllerFactory().getQuoteDetailController();
+        getPresentationComponent().inject(this);
+        quoteDetailScreenView = viewFactory.getQuoteDetailScreenView(container);
+        quoteDetailController = controllerFactory.getQuoteDetailController();
         getQuotes();
         quoteDetailController.bindView(quoteDetailScreenView);
         quoteDetailController.bindQuotes(quotes);

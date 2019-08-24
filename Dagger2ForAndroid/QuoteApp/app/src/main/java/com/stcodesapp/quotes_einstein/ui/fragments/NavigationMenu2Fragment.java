@@ -11,13 +11,17 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.stcodesapp.quotes_einstein.R;
+import com.stcodesapp.quotes_einstein.factory.ViewFactory;
 import com.stcodesapp.quotes_einstein.ui.views.screenViews.fragmentScreenView.NavigationMenu2FragmentScreenView;
+
+import javax.inject.Inject;
 
 public class NavigationMenu2Fragment extends BaseFragment {
 
-    private NavigationMenu2FragmentScreenView navigationMenu2FragmentScreenView
-            ;
-//    private SeconFr secondaryScreenController;
+    @Inject ViewFactory viewFactory;
+
+
+    private NavigationMenu2FragmentScreenView navigationMenu2FragmentScreenView;
 
     public static NavigationMenu2Fragment newInstance()
     {
@@ -32,10 +36,8 @@ public class NavigationMenu2Fragment extends BaseFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        navigationMenu2FragmentScreenView = getCompositionRoot().getViewFactory().getNavigationMenu2FragmentScreenView(null);
-//        secondaryScreenController= getCompositionRoot().getFragmentControllerFactory().getSecondaryController();
-//        secondaryScreenController.bindView((SecondActivityScreenView) secondaryActivityScreenView);
-//        ((AppCompatActivity)requireActivity()).setSupportActionBar(secondFragmentScreenView.getToolbar());
+        getPresentationComponent().inject(this);
+        navigationMenu2FragmentScreenView = viewFactory.getNavigationMenu2FragmentScreenView(null);
         setHasOptionsMenu(true);
         return navigationMenu2FragmentScreenView.getRootView();
     }
@@ -44,13 +46,11 @@ public class NavigationMenu2Fragment extends BaseFragment {
     @Override
     public void onStart() {
         super.onStart();
-//        secondaryScreenController.onStart();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-//        secondaryScreenController.onStop();
     }
 
 
@@ -61,7 +61,6 @@ public class NavigationMenu2Fragment extends BaseFragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-//        secondaryScreenController.onOptionMenuClicked(item.getItemId());
         return true;
     }
 }

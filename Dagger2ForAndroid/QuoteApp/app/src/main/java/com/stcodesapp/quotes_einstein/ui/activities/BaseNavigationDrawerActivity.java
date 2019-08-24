@@ -7,9 +7,17 @@ import android.widget.FrameLayout;
 import com.stcodesapp.quotes_einstein.R;
 import com.stcodesapp.quotes_einstein.controllers.commons.FragmentFrameWrapper;
 import com.stcodesapp.quotes_einstein.controllers.commons.NavigationDrawerController;
+import com.stcodesapp.quotes_einstein.factory.ControllerFactory;
+import com.stcodesapp.quotes_einstein.factory.ViewFactory;
 import com.stcodesapp.quotes_einstein.ui.commons.NavigationDrawerView;
 
+import javax.inject.Inject;
+
 public class BaseNavigationDrawerActivity extends BaseActivity implements FragmentFrameWrapper {
+
+    @Inject ViewFactory viewFactory;
+    @Inject ControllerFactory controllerFactory;
+
 
     private NavigationDrawerView navigationDrawerView;
     private NavigationDrawerController navigationDrawerController;
@@ -22,8 +30,9 @@ public class BaseNavigationDrawerActivity extends BaseActivity implements Fragme
 
     private void initNavigationDrawerLayout()
     {
-        navigationDrawerView = getCompositionRoot().getViewFactory().getNavigationDrawerView(null);
-        navigationDrawerController = getCompositionRoot().getControllerFactory().getNavigationDrawerController();
+        getPresentationComponent().inject(this);
+        navigationDrawerView = viewFactory.getNavigationDrawerView(null);
+        navigationDrawerController = controllerFactory.getNavigationDrawerController();
         navigationDrawerController.bindView(navigationDrawerView);
         setActionBar();
         setContentView(navigationDrawerView.getRootView());

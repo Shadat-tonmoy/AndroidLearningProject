@@ -2,11 +2,21 @@ package com.stcodesapp.quotes_einstein.ui.activities;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.widget.FrameLayout;
 
 import com.stcodesapp.quotes_einstein.controllers.activityController.SecondActivityController;
+import com.stcodesapp.quotes_einstein.controllers.commons.FragmentFrameWrapper;
+import com.stcodesapp.quotes_einstein.factory.ControllerFactory;
+import com.stcodesapp.quotes_einstein.factory.ViewFactory;
 import com.stcodesapp.quotes_einstein.ui.views.screenViews.SecondActivityScreenView;
 
-public class SecondActivity extends BaseActivity {
+import javax.inject.Inject;
+
+public class SecondActivity extends BaseActivity implements FragmentFrameWrapper {
+
+
+    @Inject ViewFactory viewFactory;
+    @Inject ControllerFactory controllerFactory;
 
 
     private SecondActivityScreenView secondActivityScreenView;
@@ -20,8 +30,9 @@ public class SecondActivity extends BaseActivity {
 
     private void init()
     {
-        secondActivityScreenView = getCompositionRoot().getViewFactory().getSecondaryScreenView(null);
-        secondActivityController = getCompositionRoot().getControllerFactory().getSecondActivityController();
+        getPresentationComponent().inject(this);
+        secondActivityScreenView = viewFactory.getSecondaryScreenView(null);
+        secondActivityController = controllerFactory.getSecondActivityController();
         secondActivityController.bindView(secondActivityScreenView);
         setContentView(secondActivityScreenView.getRootView());
     }
@@ -49,5 +60,10 @@ public class SecondActivity extends BaseActivity {
     protected void onStop() {
         super.onStop();
         secondActivityController.onStop();
+    }
+
+    @Override
+    public FrameLayout getFragmentFrame() {
+        return null;
     }
 }
