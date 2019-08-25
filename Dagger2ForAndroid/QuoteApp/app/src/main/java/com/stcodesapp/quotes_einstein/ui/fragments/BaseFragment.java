@@ -4,7 +4,6 @@ import android.support.v4.app.Fragment;
 
 import com.stcodesapp.quotes_einstein.common.CustomApplication;
 import com.stcodesapp.quotes_einstein.common.dependencyInjection.application.ApplicationComponent;
-import com.stcodesapp.quotes_einstein.common.dependencyInjection.presentation.DaggerPresentationComponent;
 import com.stcodesapp.quotes_einstein.common.dependencyInjection.presentation.PresentationComponent;
 import com.stcodesapp.quotes_einstein.common.dependencyInjection.presentation.PresentationModule;
 
@@ -16,11 +15,14 @@ public class BaseFragment extends Fragment
     {
         if(presentationComponent==null)
         {
-            presentationComponent = DaggerPresentationComponent
+            //this is not valid when use presentation component as a sub component
+           /* presentationComponent = DaggerPresentationComponent
                     .builder()
                     .presentationModule(new PresentationModule(requireActivity()))
                     .applicationComponent(getApplicationComponent())
-                    .build();
+                    .build();*/
+           presentationComponent = getApplicationComponent()
+                   .newPresentationComponent(new PresentationModule(requireActivity()));
         }
         return presentationComponent;
     }

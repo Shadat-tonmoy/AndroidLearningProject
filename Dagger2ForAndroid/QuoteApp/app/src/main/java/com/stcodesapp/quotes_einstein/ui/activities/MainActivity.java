@@ -2,14 +2,11 @@ package com.stcodesapp.quotes_einstein.ui.activities;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-
 import com.stcodesapp.quotes_einstein.factory.TasksFactory;
 import com.stcodesapp.quotes_einstein.models.Quotes;
 import com.stcodesapp.quotes_einstein.tasks.databaseTasks.QuoteInsertTask;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.inject.Inject;
 
 public class MainActivity extends BaseNavigationDrawerActivity {
@@ -20,11 +17,9 @@ public class MainActivity extends BaseNavigationDrawerActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        initQuotes();
         getQuotes();
 
     }
-
 
     @Override
     protected void onStart() {

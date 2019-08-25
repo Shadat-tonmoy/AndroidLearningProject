@@ -14,7 +14,9 @@ public class CustomApplication extends Application {
         super.onCreate();
         applicationComponent = DaggerApplicationComponent
                 .builder()
-                .applicationModule(new ApplicationModule(this))
+                .applicationModule(new ApplicationModule(this)) //Dagger can implicitly generates module that has
+                // no bootstraping dependencies. In this case application module has bootstraping dependency. So
+                // need to create module explicitly
                 .build();
     }
 
