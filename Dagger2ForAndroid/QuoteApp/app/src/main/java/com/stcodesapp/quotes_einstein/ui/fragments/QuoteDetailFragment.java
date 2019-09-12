@@ -36,6 +36,16 @@ public class QuoteDetailFragment extends BaseFragment
         return fragment;
     }
 
+    private void initComponents(ViewGroup container)
+    {
+        getPresentationComponent().inject(this);
+        quoteDetailScreenView = viewFactory.getQuoteDetailScreenView(container);
+        quoteDetailController = controllerFactory.getQuoteDetailController();
+        getQuotes();
+        quoteDetailController.bindView(quoteDetailScreenView);
+        quoteDetailController.bindQuotes(quotes);
+    }
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -50,12 +60,7 @@ public class QuoteDetailFragment extends BaseFragment
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
-        getPresentationComponent().inject(this);
-        quoteDetailScreenView = viewFactory.getQuoteDetailScreenView(container);
-        quoteDetailController = controllerFactory.getQuoteDetailController();
-        getQuotes();
-        quoteDetailController.bindView(quoteDetailScreenView);
-        quoteDetailController.bindQuotes(quotes);
+        initComponents(container);
         return quoteDetailScreenView.getRootView();
     }
 

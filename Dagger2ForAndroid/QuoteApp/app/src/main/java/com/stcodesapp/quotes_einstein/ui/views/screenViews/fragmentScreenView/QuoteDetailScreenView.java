@@ -14,7 +14,7 @@ import com.stcodesapp.quotes_einstein.ui.views.screens.fragmentScreen.QuoteDetai
 public class QuoteDetailScreenView extends BaseObservableScreenView<QuoteDetailScreen.Listener> implements QuoteDetailScreen
 {
 
-    private TextView listenButton, copyButton, shareButton, quoteText;
+    private TextView listenButton, copyButton, shareButton, quoteText, drawBackgroundButton;
 
 
     public QuoteDetailScreenView(LayoutInflater layoutInflater, @Nullable ViewGroup parent)
@@ -31,6 +31,7 @@ public class QuoteDetailScreenView extends BaseObservableScreenView<QuoteDetailS
         setClickListener(listenButton,EventTypes.LISTEN_QUOTE_BUTTON_CLICKED);
         setClickListener(copyButton,EventTypes.COPY_QUOTE_BUTTON_CLICKED);
         setClickListener(shareButton,EventTypes.SHARE_QUOTE_BUTTON_CLICKED);
+        setClickListener(drawBackgroundButton,EventTypes.DRAW_BACKGROUND_BUTTON_CLICKED);
 
     }
 
@@ -41,6 +42,7 @@ public class QuoteDetailScreenView extends BaseObservableScreenView<QuoteDetailS
         listenButton = findViewById(R.id.listen_button);
         copyButton = findViewById(R.id.copy_button);
         shareButton = findViewById(R.id.share_button);
+        drawBackgroundButton = findViewById(R.id.draw_background_button);
 
     }
 
@@ -61,6 +63,9 @@ public class QuoteDetailScreenView extends BaseObservableScreenView<QuoteDetailS
                             break;
                         case LISTEN_QUOTE_BUTTON_CLICKED:
                             listener.onListenQuoteClicked();
+                            break;
+                        case DRAW_BACKGROUND_BUTTON_CLICKED:
+                            listener.onDrawBackgroundButtonClicked();
                             break;
 
                     }

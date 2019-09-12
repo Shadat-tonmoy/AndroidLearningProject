@@ -11,6 +11,8 @@ public interface QuoteDetailScreen extends BaseObservableScreen<QuoteDetailScree
         void onListenQuoteClicked();
 
         void onShareQuoteClicked();
+
+        void onDrawBackgroundButtonClicked();
     }
 
 
