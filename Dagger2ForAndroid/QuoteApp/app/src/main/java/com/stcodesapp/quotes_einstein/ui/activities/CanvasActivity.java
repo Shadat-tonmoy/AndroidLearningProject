@@ -2,6 +2,9 @@ package com.stcodesapp.quotes_einstein.ui.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.stcodesapp.quotes_einstein.R;
@@ -19,7 +22,14 @@ public class CanvasActivity extends AppCompatActivity {
 
     private void init()
     {
-        LinearLayout linearLayout = findViewById(R.id.canvas_view);
-        linearLayout.addView(new TextWithBackgroundView(this));
+        final TextWithBackgroundView textWithBackgroundView = findViewById(R.id.custom_view);
+        Button changeColorButton = findViewById(R.id.change_color_button);
+        changeColorButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                textWithBackgroundView.swapColor();
+            }
+        });
+
     }
 }

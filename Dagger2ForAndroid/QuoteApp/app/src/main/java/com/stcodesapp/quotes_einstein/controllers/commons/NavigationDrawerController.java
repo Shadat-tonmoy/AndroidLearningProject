@@ -37,8 +37,7 @@ public class NavigationDrawerController implements NavigationDrawerScreen.Listen
                 updateToolbarTitle(Tags.HOME);
                 break;
             case R.id.nav_menu_1:
-                fragmentNavigationTasks.toNavigationMenu1Fragment();
-                updateToolbarTitle(Tags.NAVIGATION_MENU_1);
+                fragmentNavigationTasks.toCanvasScreen();
                 break;
             case R.id.nav_menu_2:
                 fragmentNavigationTasks.toNavigationMenu2Fragment();

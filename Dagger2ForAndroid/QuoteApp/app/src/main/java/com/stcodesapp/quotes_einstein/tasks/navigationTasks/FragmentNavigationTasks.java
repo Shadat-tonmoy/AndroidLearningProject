@@ -1,5 +1,6 @@
 package com.stcodesapp.quotes_einstein.tasks.navigationTasks;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
@@ -7,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import com.stcodesapp.quotes_einstein.R;
 import com.stcodesapp.quotes_einstein.common.FragmentNavigationHelper;
 import com.stcodesapp.quotes_einstein.constants.Tags;
+import com.stcodesapp.quotes_einstein.ui.activities.CanvasActivity;
 import com.stcodesapp.quotes_einstein.ui.fragments.HomeScreenFragment;
 import com.stcodesapp.quotes_einstein.ui.fragments.NavigationMenu1Fragment;
 import com.stcodesapp.quotes_einstein.ui.fragments.NavigationMenu2Fragment;
@@ -48,6 +50,12 @@ public class FragmentNavigationTasks {
 
     }
 
+    public void toCanvasScreen()
+    {
+        Intent intent = new Intent(activity, CanvasActivity.class);
+        activity.startActivity(intent);
+    }
+
     public String getCurrentFragmentTag()
     {
         return fragmentNavigationHelper.getCurrentFragment().getTag();
@@ -58,4 +66,6 @@ public class FragmentNavigationTasks {
         Toolbar toolbar  = activity.findViewById(R.id.app_toolbar);
         toolbar.setTitle(title);
     }
+
+
 }

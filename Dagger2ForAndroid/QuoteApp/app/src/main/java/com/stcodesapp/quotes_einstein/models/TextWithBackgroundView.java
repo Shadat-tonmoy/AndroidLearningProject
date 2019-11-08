@@ -8,23 +8,71 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.support.annotation.Nullable;
+import android.util.AttributeSet;
 import android.view.View;
 
 import com.stcodesapp.quotes_einstein.R;
 
-public class TextWithBackgroundView extends View {
+public class TextWithBackgroundView extends View
+{
+
+    private Rect rect;
+    private Paint paint;
+
 
     public TextWithBackgroundView(Context context)
     {
         super(context);
+        init(null);
     }
+
+    public TextWithBackgroundView(Context context, @Nullable AttributeSet attrs)
+    {
+        super(context, attrs);
+        init(null);
+    }
+
+    public TextWithBackgroundView(Context context, @Nullable AttributeSet attrs, int defStyleAttr)
+    {
+        super(context, attrs, defStyleAttr);
+        init(null);
+    }
+
+    public TextWithBackgroundView(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes)
+    {
+        super(context, attrs, defStyleAttr, defStyleRes);
+        init(null);
+    }
+
+    public void init(@Nullable AttributeSet attributeSet)
+    {
+        rect = new Rect();
+        paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        paint.setColor(Color.BLUE);
+
+    }
+
 
     @Override
     protected void onDraw(Canvas canvas)
     {
         super.onDraw(canvas);
-        drawBackground(canvas);
-        drawText(canvas);
+        int left = 10;
+        int top = 10;
+        int bottom = top + 100;
+        int right = left + 100;
+        rect.left = left;
+        rect.top = top;
+        rect.bottom = bottom;
+        rect.right = right;
+        canvas.drawRect(rect,paint);
+    }
+
+    public void swapColor()
+    {
+        paint.setColor(paint.getColor() == Color.BLUE ? Color.RED : Color.BLUE);
+        postInvalidate();
     }
 
     private void drawBackground(Canvas canvas)
