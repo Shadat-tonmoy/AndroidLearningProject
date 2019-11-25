@@ -7,6 +7,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.shadattonmoy.countrylistwithretrofit.R;
+import com.shadattonmoy.countrylistwithretrofit.model.User;
 import com.shadattonmoy.countrylistwithretrofit.model.WeatherData;
 import com.shadattonmoy.countrylistwithretrofit.tasks.RetrofitInstance;
 
@@ -46,6 +47,22 @@ public class MainActivity extends AppCompatActivity {
 
     public void checkPostRequest(View view)
     {
+        User user = new User();
+        user.setUserName("Shadat Tonmoy");
+        user.setPassword("123456");
+        Call<User> userPostRequest = RetrofitInstance.getUserPostAPI().getUserPostResult(user);
+        userPostRequest.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                Log.e("ResultFromPostReq",response.body().getId()+" is new ID ");
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                Log.e("Error","In Post Request "+t.getMessage()+" ");
+
+            }
+        });
 
     }
 }
