@@ -1,8 +1,10 @@
-package com.shadattonmoy.countrylistwithretrofit;
+package com.shadattonmoy.countrylistwithretrofit.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.shadattonmoy.countrylistwithretrofit.R;
 
 public class MainActivity extends AppCompatActivity {
 
