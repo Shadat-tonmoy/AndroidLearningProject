@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="hamburgerPadding">16dp</dimen>
+    <dimen name="toolbarTitle">16sp</dimen>
+    <dimen name="quoteTextSize">18sp</dimen>
+    <dimen name="default_padding">8dp</dimen>
+    <dimen name="default_margin">8dp</dimen>
+    <dimen name="default_elevation">4dp</dimen>
+</resources>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ListFragment</string>
+    <string-array name="names">
+        <item>Shadat Tonmoy</item>
+        <item>Foyez Akanda</item>
+        <item>Shamsul Arafin</item>
+        <item>Alim Al Sajib</item>
+        <item>Mong Ting Wong</item>
+    </string-array>
+</resources>

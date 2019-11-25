@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">GridViewUsingArrayAdapter</string>
+    <string-array name="names">
+        <item>Shadat Tonmoy</item>
+        <item>Shamsul Arafin</item>
+        <item>Foyez Akanda</item>
+        <item>Alim Al Sajib</item>
+        <item>Mong Ting</item>
+    </string-array>
+
+    <string-array name="regNo">
+        <item>2014331070</item>
+        <item>2014331063</item>
+        <item>2014331009</item>
+        <item>2014331062</item>
+        <item>2014331064</item>
+    </string-array>
+
+    <string-array name="email">
+        <item>shadat.tonmoy@gmail.com</item>
+        <item>shamsul.arafin@gmail.com</item>
+        <item>foyez.akanda@gmail.com</item>
+        <item>alim.sajib@gmail.com</item>
+        <item>mong.ting@gmail.com</item>
+    </string-array>
+</resources>

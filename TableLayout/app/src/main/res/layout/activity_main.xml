@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="shadattonmoy.tablelayout.MainActivity">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#bdc3c7"
+        android:shrinkColumns="0"
+        >
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#34495e"
+            android:padding="20dp"
+            android:layout_gravity="center"
+            >
+
+            <TextView
+                android:text="BokchodApp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView3"
+                android:textColor="#ffffff"
+                android:textSize="25sp"
+                android:textAlignment="center"
+                android:gravity="center"
+
+                />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#8e44ad"
+            android:padding="15dp"
+
+            >
+
+            <TextView
+                android:text="User Name : "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView"
+                android:textColor="#ffffff"
+                android:textSize="20sp"
+                />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:inputType="textPersonName"
+                android:background="#ffffff"
+                android:ems="10"
+                android:id="@+id/editText" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#c0392b"
+            android:padding="15dp"
+            >
+            <TextView
+                android:text="Password : "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView2"
+                android:textColor="#ffffff"
+                android:textSize="20sp"
+                />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:background="#ffffff"
+                android:padding="10dp"
+                android:ems="10"
+                android:id="@+id/editText2" />
+
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="20dp"
+            android:background="#2ecc71"
+
+
+            >
+
+            <Button
+                android:text="Login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/button2"
+                android:background="#2980b9"
+                android:layout_marginRight="15dp"
+                android:padding="20dp"
+                android:textSize="20sp"
+                />
+
+            <Button
+                android:text="Reset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#e74c3c"
+                android:id="@+id/button"
+                android:padding="20dp"
+                android:textSize="20sp"
+                />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#2c3e50"
+            android:layout_marginTop="10dp"
+
+            >
+
+            <TextView
+                android:text="Not a bokchod?\n Click Here to be a Bokchod "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView4"
+                android:textColor="#ffffff"
+                android:textSize="18sp"
+                android:layout_column="1"
+                android:textAlignment="center"
+
+
+
+                />
+        </TableRow>
+    </TableLayout>
+</RelativeLayout>

@@ -1,0 +1,123 @@
+<resources>
+    <string name="app_name">GridView</string>
+    <string-array name="names">
+        <item>Shadat Tonmoy</item>
+        <item>Shamsul Arafin</item>
+        <item>Foyez Akanda</item>
+        <item>Mong Ting</item>
+        <item>Alim Al Sajib</item>
+
+        <item>Shadat Tonmoy</item>
+        <item>Shamsul Arafin</item>
+        <item>Foyez Akanda</item>
+        <item>Mong Ting</item>
+        <item>Alim Al Sajib</item>
+
+
+        <item>Shadat Tonmoy</item>
+        <item>Shamsul Arafin</item>
+        <item>Foyez Akanda</item>
+        <item>Mong Ting</item>
+        <item>Alim Al Sajib</item>
+
+        <item>Shadat Tonmoy</item>
+        <item>Shamsul Arafin</item>
+        <item>Foyez Akanda</item>
+        <item>Mong Ting</item>
+        <item>Alim Al Sajib</item>
+
+        <item>Shadat Tonmoy</item>
+        <item>Shamsul Arafin</item>
+        <item>Foyez Akanda</item>
+        <item>Mong Ting</item>
+        <item>Alim Al Sajib</item>
+
+
+        <item>Shadat Tonmoy</item>
+        <item>Shamsul Arafin</item>
+        <item>Foyez Akanda</item>
+        <item>Mong Ting</item>
+        <item>Alim Al Sajib</item>
+    </string-array>
+
+    <string-array name="reg">
+        <item>2014331070</item>
+        <item>2014331063</item>
+        <item>2014331009</item>
+        <item>2014331064</item>
+        <item>2014331062</item>
+
+
+        <item>2014331070</item>
+        <item>2014331063</item>
+        <item>2014331009</item>
+        <item>2014331064</item>
+        <item>2014331062</item>
+
+
+        <item>2014331070</item>
+        <item>2014331063</item>
+        <item>2014331009</item>
+        <item>2014331064</item>
+        <item>2014331062</item>
+
+        <item>2014331070</item>
+        <item>2014331063</item>
+        <item>2014331009</item>
+        <item>2014331064</item>
+        <item>2014331062</item>
+
+
+        <item>2014331070</item>
+        <item>2014331063</item>
+        <item>2014331009</item>
+        <item>2014331064</item>
+        <item>2014331062</item>
+
+
+        <item>2014331070</item>
+        <item>2014331063</item>
+        <item>2014331009</item>
+        <item>2014331064</item>
+        <item>2014331062</item>
+
+    </string-array>
+
+    <string-array name="email">
+        <item>shadat.tonmoy@gmail.com</item>
+        <item>sharafin@gmail.com</item>
+        <item>foyaz05@gmail.com</item>
+        <item>mongting@gmail.com</item>
+        <item>alimalsajib@gmail.com</item>
+
+        <item>shadat.tonmoy@gmail.com</item>
+        <item>sharafin@gmail.com</item>
+        <item>foyaz05@gmail.com</item>
+        <item>mongting@gmail.com</item>
+        <item>alimalsajib@gmail.com</item>
+
+        <item>shadat.tonmoy@gmail.com</item>
+        <item>sharafin@gmail.com</item>
+        <item>foyaz05@gmail.com</item>
+        <item>mongting@gmail.com</item>
+        <item>alimalsajib@gmail.com</item>
+
+        <item>shadat.tonmoy@gmail.com</item>
+        <item>sharafin@gmail.com</item>
+        <item>foyaz05@gmail.com</item>
+        <item>mongting@gmail.com</item>
+        <item>alimalsajib@gmail.com</item>
+
+        <item>shadat.tonmoy@gmail.com</item>
+        <item>sharafin@gmail.com</item>
+        <item>foyaz05@gmail.com</item>
+        <item>mongting@gmail.com</item>
+        <item>alimalsajib@gmail.com</item>
+
+        <item>shadat.tonmoy@gmail.com</item>
+        <item>sharafin@gmail.com</item>
+        <item>foyaz05@gmail.com</item>
+        <item>mongting@gmail.com</item>
+        <item>alimalsajib@gmail.com</item>
+    </string-array>
+</resources>
