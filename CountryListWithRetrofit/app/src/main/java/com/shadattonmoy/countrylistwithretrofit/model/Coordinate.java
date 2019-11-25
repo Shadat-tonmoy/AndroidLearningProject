@@ -5,20 +5,30 @@ import com.google.gson.annotations.SerializedName;
 public class Coordinate
 {
     @SerializedName("lon")
-    private long longitude;
+    private double longitude;
     @SerializedName("lat")
-    private long latitude;
+    private double latitude;
 
-    public long getLongitude() {
-        return longitude;
-    }
+
 
     public void setLongitude(long longitude) {
         this.longitude = longitude;
     }
 
-    public long getLatitude() {
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public double getLatitude() {
         return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
     }
 
     public void setLatitude(long latitude) {

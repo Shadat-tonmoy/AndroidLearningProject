@@ -6,13 +6,33 @@
     android:layout_height="match_parent"
     tools:context=".view.MainActivity">
 
-    <TextView
+    <Button
+        android:id="@+id/get_request_check_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="Check GET Request!"
+        android:background="@color/colorPrimary"
+        android:textColor="@android:color/white"
+        android:padding="16dp"
+        android:layout_margin="16dp"
+        android:onClick="checkGETRequest"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/post_request_check_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Check POST Request!"
+        android:background="@color/colorPrimary"
+        android:textColor="@android:color/white"
+        android:padding="16dp"
+        android:onClick="checkPostRequest"
+        android:layout_margin="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/get_request_check_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
