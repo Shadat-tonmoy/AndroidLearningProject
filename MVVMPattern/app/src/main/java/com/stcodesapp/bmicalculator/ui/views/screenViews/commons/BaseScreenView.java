@@ -1,9 +1,9 @@
-package com.stcodesapp.bmicalculator.ui.views.screenViews;
+package com.stcodesapp.bmicalculator.ui.views.screenViews.commons;
 
 import android.content.Context;
 import android.view.View;
 
-import com.stcodesapp.bmicalculator.ui.views.screen.BaseScreen;
+import com.stcodesapp.bmicalculator.ui.views.screen.commons.BaseScreen;
 
 public abstract class BaseScreenView implements BaseScreen
 {

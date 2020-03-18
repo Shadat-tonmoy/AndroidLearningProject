@@ -1,12 +1,12 @@
-package com.stcodesapp.bmicalculator.ui.views.screenViews;
+package com.stcodesapp.bmicalculator.ui.views.screenViews.commons;
 
-import com.stcodesapp.bmicalculator.ui.views.screen.BaseObservableScreen;
+import com.stcodesapp.bmicalculator.ui.views.screen.commons.BaseObservableScreen;
 
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-public abstract class BaseObservableScreenView<ListenerType> implements BaseObservableScreen<ListenerType>
+public abstract class BaseObservableScreenView<ListenerType> extends BaseScreenView implements BaseObservableScreen<ListenerType>
 {
     private Set<ListenerType> listeners = new HashSet<>();
 
