@@ -4,13 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
+import com.stcodesapp.bmicalculator.dataSource.RandomNumberGenerator;
 import com.stcodesapp.bmicalculator.observer.MainActivityObserver;
 
 public class MainActivity extends AppCompatActivity
 {
 
     private static final String TAG = "MainActivity";
+    private TextView randomNumberOutputView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -18,6 +21,19 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getLifecycle().addObserver(new MainActivityObserver());
+        init();
+        generateRandomNumber();
+    }
+
+    private void init()
+    {
+        randomNumberOutputView = findViewById(R.id.random_number_output);
+    }
+
+    private void generateRandomNumber()
+    {
+        RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
+        randomNumberOutputView.setText(randomNumberGenerator.getRandomNumber());
     }
 
     @Override
