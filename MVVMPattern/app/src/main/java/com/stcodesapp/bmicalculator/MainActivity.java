@@ -1,6 +1,8 @@
 package com.stcodesapp.bmicalculator;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelStore;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -32,7 +34,7 @@ public class MainActivity extends AppCompatActivity
 
     private void generateRandomNumber()
     {
-        RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
+        RandomNumberGenerator randomNumberGenerator = new ViewModelProvider(this).get(RandomNumberGenerator.class);
         randomNumberOutputView.setText(randomNumberGenerator.getRandomNumber());
     }
 

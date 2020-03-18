@@ -1,8 +1,12 @@
 package com.stcodesapp.bmicalculator.dataSource;
 
+import android.util.Log;
+
+import androidx.lifecycle.ViewModel;
+
 import java.util.Random;
 
-public class RandomNumberGenerator
+public class RandomNumberGenerator extends ViewModel
 {
     private static final String TAG = "RandomNumberGenerator";
 
@@ -16,8 +20,9 @@ public class RandomNumberGenerator
 
     }
 
-    public void createRandomNumber()
+    private void createRandomNumber()
     {
+        Log.e(TAG, "createRandomNumber: CratingRandomNumber...");
         Random random = new Random();
         randomNumberString = "Random Number is : "+random.nextInt(50);
     }
