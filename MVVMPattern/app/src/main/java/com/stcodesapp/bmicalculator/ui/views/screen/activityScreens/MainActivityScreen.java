@@ -6,6 +6,7 @@ public interface MainActivityScreen extends BaseObservableScreen<MainActivityScr
 {
     interface Listener
     {
+        void onGenerateRandomNumberButtonClicked();
 
     }
 }
