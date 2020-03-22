@@ -5,27 +5,32 @@ import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.stcodesapp.bmicalculator.ui.views.screenViews.activityScreenViews.MainActivityScreenView;
-import com.stcodesapp.controller.activityController.MainActivityController;
+import com.stcodesapp.bmicalculator.common.BaseActivity;
+import com.stcodesapp.bmicalculator.factory.ViewFactory;
+import com.stcodesapp.bmicalculator.ui.views.screenView.activityScreenViews.MainActivityScreenView;
+import com.stcodesapp.bmicalculator.controller.activityController.MainActivityController;
 
-public class MainActivity extends AppCompatActivity
+import javax.inject.Inject;
+
+public class MainActivity extends BaseActivity
 {
 
     private static final String TAG = "MainActivity";
-    private MainActivityController controller;
     private MainActivityScreenView screenView;
+    @Inject MainActivityController controller;
+    @Inject ViewFactory viewFactory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        getPresentationComponent().inject(this);
         init();
     }
 
     private void init()
     {
-        screenView = new MainActivityScreenView(getLayoutInflater(),null);
-        controller = new MainActivityController(this);
+        screenView = viewFactory.getMainActivityScreenView(null);
         controller.bindView(screenView);
         getLifecycle().addObserver(controller);
         setContentView(screenView.getRootView());

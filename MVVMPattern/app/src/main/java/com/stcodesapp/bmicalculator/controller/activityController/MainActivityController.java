@@ -1,4 +1,4 @@
-package com.stcodesapp.controller.activityController;
+package com.stcodesapp.bmicalculator.controller.activityController;
 
 import android.app.Activity;
 import android.util.Log;
@@ -13,8 +13,8 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStoreOwner;
 
 import com.stcodesapp.bmicalculator.dataSource.RandomNumberGenerator;
-import com.stcodesapp.bmicalculator.ui.views.screen.activityScreens.MainActivityScreen;
-import com.stcodesapp.bmicalculator.ui.views.screenViews.activityScreenViews.MainActivityScreenView;
+import com.stcodesapp.bmicalculator.ui.views.screen.activityScreen.MainActivityScreen;
+import com.stcodesapp.bmicalculator.ui.views.screenView.activityScreenViews.MainActivityScreenView;
 
 public class MainActivityController implements MainActivityScreen.Listener, LifecycleObserver
 {

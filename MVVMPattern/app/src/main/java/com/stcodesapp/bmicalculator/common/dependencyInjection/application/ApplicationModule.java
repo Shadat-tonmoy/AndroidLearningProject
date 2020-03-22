@@ -1,4 +1,4 @@
-package com.stcodesapp.common.dependencyInjection.application;
+package com.stcodesapp.bmicalculator.common.dependencyInjection.application;
 
 import android.content.Context;
 

@@ -1,10 +1,10 @@
-package com.stcodesapp.common;
+package com.stcodesapp.bmicalculator.common;
 
 import android.app.Application;
 
-import com.stcodesapp.common.dependencyInjection.application.ApplicationComponent;
-import com.stcodesapp.common.dependencyInjection.application.ApplicationModule;
-import com.stcodesapp.common.dependencyInjection.application.DaggerApplicationComponent;
+import com.stcodesapp.bmicalculator.common.dependencyInjection.application.ApplicationComponent;
+import com.stcodesapp.bmicalculator.common.dependencyInjection.application.ApplicationModule;
+import com.stcodesapp.bmicalculator.common.dependencyInjection.application.DaggerApplicationComponent;
 
 public class BMICalculatorApp extends Application
 {
@@ -18,7 +18,7 @@ public class BMICalculatorApp extends Application
 
     }
 
-    ApplicationComponent getApplicationComponent()
+    public ApplicationComponent getApplicationComponent()
     {
         if(applicationComponent==null)
         {

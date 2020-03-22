@@ -1,4 +1,4 @@
-package com.stcodesapp.bmicalculator.ui.views.screenViews.commons;
+package com.stcodesapp.bmicalculator.ui.views.screenView.commons;
 
 import android.content.Context;
 import android.view.View;

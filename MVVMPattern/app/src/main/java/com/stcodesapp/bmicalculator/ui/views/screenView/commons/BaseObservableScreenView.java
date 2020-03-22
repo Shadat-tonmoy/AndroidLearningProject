@@ -1,4 +1,4 @@
-package com.stcodesapp.bmicalculator.ui.views.screenViews.commons;
+package com.stcodesapp.bmicalculator.ui.views.screenView.commons;
 
 import com.stcodesapp.bmicalculator.ui.views.screen.commons.BaseObservableScreen;
 

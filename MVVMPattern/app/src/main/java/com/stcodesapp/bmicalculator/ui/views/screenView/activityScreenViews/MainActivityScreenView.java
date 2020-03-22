@@ -1,4 +1,4 @@
-package com.stcodesapp.bmicalculator.ui.views.screenViews.activityScreenViews;
+package com.stcodesapp.bmicalculator.ui.views.screenView.activityScreenViews;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,8 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.stcodesapp.bmicalculator.R;
-import com.stcodesapp.bmicalculator.ui.views.screen.activityScreens.MainActivityScreen;
-import com.stcodesapp.bmicalculator.ui.views.screenViews.commons.BaseObservableScreenView;
+import com.stcodesapp.bmicalculator.ui.views.screen.activityScreen.MainActivityScreen;
+import com.stcodesapp.bmicalculator.ui.views.screenView.commons.BaseObservableScreenView;
 
 public class MainActivityScreenView extends BaseObservableScreenView<MainActivityScreen.Listener> implements MainActivityScreen
 {
