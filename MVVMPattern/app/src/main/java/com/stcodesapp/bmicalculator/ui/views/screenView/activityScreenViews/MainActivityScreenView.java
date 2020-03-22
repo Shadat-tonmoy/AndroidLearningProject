@@ -24,7 +24,7 @@ public class MainActivityScreenView extends BaseObservableScreenView<MainActivit
 
     public MainActivityScreenView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup parent)
     {
-        setRootView(layoutInflater.inflate(R.layout.activity_main,parent,false));
+        setRootView(layoutInflater.inflate(R.layout.main_activity_layout,parent,false));
         inflateUIElements();
         initUserInteractions();
     }

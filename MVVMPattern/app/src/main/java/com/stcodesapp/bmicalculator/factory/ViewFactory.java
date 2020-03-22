@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 
 import com.stcodesapp.bmicalculator.ui.views.screenView.activityScreenViews.MainActivityScreenView;
+import com.stcodesapp.bmicalculator.ui.views.screenView.commons.NavigationDrawerView;
 
 public class ViewFactory
 {
@@ -20,5 +21,10 @@ public class ViewFactory
     public MainActivityScreenView getMainActivityScreenView(@Nullable ViewGroup parent)
     {
         return new MainActivityScreenView(layoutInflater,parent);
+    }
+
+    public NavigationDrawerView getNavigationDrawerView(@Nullable ViewGroup parent)
+    {
+        return new NavigationDrawerView(layoutInflater,parent);
     }
 }

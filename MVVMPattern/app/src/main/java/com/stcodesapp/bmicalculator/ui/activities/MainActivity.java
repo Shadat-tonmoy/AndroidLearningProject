@@ -1,4 +1,4 @@
-package com.stcodesapp.bmicalculator;
+package com.stcodesapp.bmicalculator.ui.activities;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -12,7 +12,7 @@ import com.stcodesapp.bmicalculator.controller.activityController.MainActivityCo
 
 import javax.inject.Inject;
 
-public class MainActivity extends BaseActivity
+public class MainActivity extends BaseNavigationDrawerActivity
 {
 
     private static final String TAG = "MainActivity";

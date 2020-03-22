@@ -3,6 +3,7 @@ package com.stcodesapp.bmicalculator.common.dependencyInjection.presentation.mod
 import android.app.Activity;
 
 import com.stcodesapp.bmicalculator.controller.activityController.MainActivityController;
+import com.stcodesapp.bmicalculator.controller.activityController.NavigationDrawerController;
 
 import dagger.Module;
 import dagger.Provides;
@@ -14,6 +15,13 @@ public class ControllerModule
     MainActivityController getMainActivityController(Activity activity)
     {
         return new MainActivityController(activity);
+    }
+
+
+    @Provides
+    NavigationDrawerController getNavigationDrawerController(Activity activity)
+    {
+        return new NavigationDrawerController(activity);
     }
 
 
