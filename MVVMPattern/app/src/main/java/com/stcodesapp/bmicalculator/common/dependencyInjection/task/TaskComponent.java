@@ -8,7 +8,6 @@ import dagger.Component;
 @Component(modules = TaskModule.class)
 public interface TaskComponent
 {
-
     void inject(NavigationDrawerController navigationDrawerController);
 
 }

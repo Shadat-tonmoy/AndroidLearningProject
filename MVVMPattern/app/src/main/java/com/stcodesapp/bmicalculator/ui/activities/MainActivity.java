@@ -3,9 +3,6 @@ package com.stcodesapp.bmicalculator.ui.activities;
 import android.os.Bundle;
 import android.util.Log;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.stcodesapp.bmicalculator.common.BaseActivity;
 import com.stcodesapp.bmicalculator.factory.ViewFactory;
 import com.stcodesapp.bmicalculator.ui.views.screenView.activityScreenViews.MainActivityScreenView;
 import com.stcodesapp.bmicalculator.controller.activityController.MainActivityController;
@@ -16,24 +13,24 @@ public class MainActivity extends BaseNavigationDrawerActivity
 {
 
     private static final String TAG = "MainActivity";
-    private MainActivityScreenView screenView;
-    @Inject MainActivityController controller;
-    @Inject ViewFactory viewFactory;
+//    private MainActivityScreenView screenView;
+//    @Inject MainActivityController controller;
+//    @Inject ViewFactory viewFactory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        getPresentationComponent().inject(this);
-        init();
+//        getPresentationComponent().inject(this);
+//        init();
     }
 
     private void init()
     {
-        screenView = viewFactory.getMainActivityScreenView(null);
+        /*screenView = viewFactory.getMainActivityScreenView(null);
         controller.bindView(screenView);
         getLifecycle().addObserver(controller);
-        setContentView(screenView.getRootView());
+        setContentView(screenView.getRootView());*/
     }
 
 

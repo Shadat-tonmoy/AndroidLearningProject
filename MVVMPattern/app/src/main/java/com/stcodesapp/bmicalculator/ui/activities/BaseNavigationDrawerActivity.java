@@ -1,24 +1,27 @@
 package com.stcodesapp.bmicalculator.ui.activities;
 
 import android.os.Bundle;
+import android.os.PersistableBundle;
+import android.widget.FrameLayout;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 
 import com.stcodesapp.bmicalculator.R;
-import com.stcodesapp.bmicalculator.common.BaseActivity;
+import com.stcodesapp.bmicalculator.common.baseUI.BaseActivity;
+import com.stcodesapp.bmicalculator.common.fragmentHelper.FragmentFrameWrapper;
 import com.stcodesapp.bmicalculator.controller.activityController.NavigationDrawerController;
 import com.stcodesapp.bmicalculator.factory.ViewFactory;
 import com.stcodesapp.bmicalculator.ui.views.screenView.commons.NavigationDrawerView;
 
 import javax.inject.Inject;
 
-public class BaseNavigationDrawerActivity extends BaseActivity {
+public class BaseNavigationDrawerActivity extends BaseActivity implements FragmentFrameWrapper {
 
 
-    @Inject NavigationDrawerController navigationDrawerController;
+    @Inject NavigationDrawerController controller;
     @Inject ViewFactory viewFactory;
-    private NavigationDrawerView navigationDrawerView;
+    private NavigationDrawerView screenView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -29,18 +32,18 @@ public class BaseNavigationDrawerActivity extends BaseActivity {
     private void initNavigationDrawerLayout()
     {
         getPresentationComponent().inject(this);
-        navigationDrawerView = viewFactory.getNavigationDrawerView(null);
-        navigationDrawerController.bindView(navigationDrawerView);
+        screenView = viewFactory.getNavigationDrawerView(null);
+        controller.bindView(screenView);
         setActionBar();
-        setContentView(navigationDrawerView.getRootView());
+        setContentView(screenView.getRootView());
 
     }
 
     private void setActionBar()
     {
-        setSupportActionBar(navigationDrawerView.getToolbar());
-        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this,navigationDrawerView.getDrawerLayout(),navigationDrawerView.getToolbar(),R.string.drawer_open, R.string.drawer_close);
-        navigationDrawerView.getDrawerLayout().setDrawerListener(actionBarDrawerToggle);
+        setSupportActionBar(screenView.getToolbar());
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, screenView.getDrawerLayout(), screenView.getToolbar(),R.string.drawer_open, R.string.drawer_close);
+        screenView.getDrawerLayout().setDrawerListener(actionBarDrawerToggle);
         if(getSupportActionBar()!=null)
         {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -53,29 +56,35 @@ public class BaseNavigationDrawerActivity extends BaseActivity {
     @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
+        controller.onPostCreate();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        navigationDrawerController.onStart();
+        controller.onStart();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        navigationDrawerController.onStop();
+        controller.onStop();
     }
 
     @Override
     public void onBackPressed() {
-        if(navigationDrawerView.isDrawerOpen())
+        if(screenView.isDrawerOpen())
         {
-            navigationDrawerView.closeNavDrawer();
+            screenView.closeNavDrawer();
         }
         else
         {
             super.onBackPressed();
         }
+    }
+
+    @Override
+    public FrameLayout getFragmentFrame() {
+        return screenView.getFrameLayout();
     }
 }

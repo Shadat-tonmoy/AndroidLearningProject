@@ -20,6 +20,7 @@ public class NavigationDrawerView extends BaseObservableScreenView<NavigationDra
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     private Toolbar toolbar;
+    private FrameLayout frameLayout;
 
     public NavigationDrawerView(LayoutInflater layoutInflater, @Nullable ViewGroup parent)
     {
@@ -50,6 +51,7 @@ public class NavigationDrawerView extends BaseObservableScreenView<NavigationDra
         toolbar = findViewById(R.id.app_toolbar);
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigation_view);
+        frameLayout = findViewById(R.id.frame_content);
 
     }
 
@@ -74,5 +76,7 @@ public class NavigationDrawerView extends BaseObservableScreenView<NavigationDra
         return drawerLayout;
     }
 
-
+    public FrameLayout getFrameLayout() {
+        return frameLayout;
+    }
 }
