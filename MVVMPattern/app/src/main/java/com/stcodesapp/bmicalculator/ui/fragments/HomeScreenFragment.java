@@ -10,17 +10,18 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.stcodesapp.bmicalculator.common.baseUI.BaseFragment;
-import com.stcodesapp.bmicalculator.controller.activityController.MainActivityController;
+import com.stcodesapp.bmicalculator.controller.fragmentController.HomeFragmentController;
 import com.stcodesapp.bmicalculator.factory.ViewFactory;
-import com.stcodesapp.bmicalculator.ui.views.screenView.activityScreenViews.MainActivityScreenView;
+import com.stcodesapp.bmicalculator.ui.views.screenView.activityScreenViews.HomeScreenView;
 
 import javax.inject.Inject;
 
 public class HomeScreenFragment extends BaseFragment
 {
     @Inject ViewFactory viewFactory;
-    @Inject MainActivityController controller;
-    private MainActivityScreenView screenView;
+    @Inject
+    HomeFragmentController controller;
+    private HomeScreenView screenView;
 
     public static HomeScreenFragment newInstance()
     {
@@ -61,6 +62,7 @@ public class HomeScreenFragment extends BaseFragment
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        getLifecycle().addObserver(controller);
     }
 
 

@@ -1,4 +1,4 @@
-package com.stcodesapp.bmicalculator.controller.activityController;
+package com.stcodesapp.bmicalculator.controller.fragmentController;
 
 import android.app.Activity;
 import android.util.Log;
@@ -13,25 +13,25 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStoreOwner;
 
 import com.stcodesapp.bmicalculator.dataSource.RandomNumberGenerator;
-import com.stcodesapp.bmicalculator.ui.views.screen.activityScreen.MainActivityScreen;
-import com.stcodesapp.bmicalculator.ui.views.screenView.activityScreenViews.MainActivityScreenView;
+import com.stcodesapp.bmicalculator.ui.views.screen.activityScreen.HomeScreen;
+import com.stcodesapp.bmicalculator.ui.views.screenView.activityScreenViews.HomeScreenView;
 
-public class MainActivityController implements MainActivityScreen.Listener, LifecycleObserver
+public class HomeFragmentController implements HomeScreen.Listener, LifecycleObserver
 {
 
     private static final String TAG = "MainActivityController";
     private Activity activity;
-    private MainActivityScreenView screenView;
+    private HomeScreenView screenView;
     private RandomNumberGenerator randomNumberGenerator;
     private LiveData<String> randomNumberString;
 
-    public MainActivityController(Activity activity)
+    public HomeFragmentController(Activity activity)
     {
         this.activity = activity;
         randomNumberGenerator = new ViewModelProvider((ViewModelStoreOwner) activity).get(RandomNumberGenerator.class);
     }
 
-    public void bindView(MainActivityScreenView screenView)
+    public void bindView(HomeScreenView screenView)
     {
         this.screenView = screenView;
     }

@@ -3,12 +3,6 @@ package com.stcodesapp.bmicalculator.ui.activities;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.stcodesapp.bmicalculator.factory.ViewFactory;
-import com.stcodesapp.bmicalculator.ui.views.screenView.activityScreenViews.MainActivityScreenView;
-import com.stcodesapp.bmicalculator.controller.activityController.MainActivityController;
-
-import javax.inject.Inject;
-
 public class MainActivity extends BaseNavigationDrawerActivity
 {
 

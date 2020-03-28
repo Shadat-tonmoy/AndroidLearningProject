@@ -8,6 +8,7 @@
         android:id="@+id/random_number_output"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Random NumberOutput"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -19,8 +20,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/random_number_output"
+        android:layout_margin="16dp"
         android:text="Generate Random Number"
         />
 

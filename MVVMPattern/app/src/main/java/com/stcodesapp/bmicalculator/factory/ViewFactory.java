@@ -1,12 +1,11 @@
 package com.stcodesapp.bmicalculator.factory;
 
-import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
 
-import com.stcodesapp.bmicalculator.ui.views.screenView.activityScreenViews.MainActivityScreenView;
+import com.stcodesapp.bmicalculator.ui.views.screenView.activityScreenViews.HomeScreenView;
 import com.stcodesapp.bmicalculator.ui.views.screenView.commons.NavigationDrawerView;
 
 public class ViewFactory
@@ -18,9 +17,9 @@ public class ViewFactory
         this.layoutInflater = layoutInflater;
     }
 
-    public MainActivityScreenView getMainActivityScreenView(@Nullable ViewGroup parent)
+    public HomeScreenView getMainActivityScreenView(@Nullable ViewGroup parent)
     {
-        return new MainActivityScreenView(layoutInflater,parent);
+        return new HomeScreenView(layoutInflater,parent);
     }
 
     public NavigationDrawerView getNavigationDrawerView(@Nullable ViewGroup parent)

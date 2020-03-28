@@ -11,10 +11,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.stcodesapp.bmicalculator.R;
-import com.stcodesapp.bmicalculator.ui.views.screen.activityScreen.MainActivityScreen;
+import com.stcodesapp.bmicalculator.ui.views.screen.activityScreen.HomeScreen;
 import com.stcodesapp.bmicalculator.ui.views.screenView.commons.BaseObservableScreenView;
 
-public class MainActivityScreenView extends BaseObservableScreenView<MainActivityScreen.Listener> implements MainActivityScreen
+public class HomeScreenView extends BaseObservableScreenView<HomeScreen.Listener> implements HomeScreen
 {
 
     private static final String TAG = "MainActivityScreenView";
@@ -22,7 +22,7 @@ public class MainActivityScreenView extends BaseObservableScreenView<MainActivit
     private Button generateRandomNumberButton;
 
 
-    public MainActivityScreenView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup parent)
+    public HomeScreenView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup parent)
     {
         setRootView(layoutInflater.inflate(R.layout.home_screen_layout,parent,false));
         inflateUIElements();
@@ -45,7 +45,7 @@ public class MainActivityScreenView extends BaseObservableScreenView<MainActivit
             public void onClick(View view)
             {
                 Log.e(TAG, "onClick: NotifyingListeners" + getListeners().size());
-                for(MainActivityScreen.Listener listener : getListeners())
+                for(HomeScreen.Listener listener : getListeners())
                 {
                     Log.e(TAG, "onClick: NotifyingListeners" + listener);
                     listener.onGenerateRandomNumberButtonClicked();
