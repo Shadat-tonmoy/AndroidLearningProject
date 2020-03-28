@@ -6,7 +6,8 @@ import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 
 import com.stcodesapp.bmicalculator.ui.views.screenView.activityScreenViews.HomeScreenView;
-import com.stcodesapp.bmicalculator.ui.views.screenView.commons.NavigationDrawerView;
+import com.stcodesapp.bmicalculator.ui.views.screenView.commons.BottomNavigationScreenView;
+import com.stcodesapp.bmicalculator.ui.views.screenView.commons.NavigationDrawerScreenView;
 
 public class ViewFactory
 {
@@ -22,8 +23,13 @@ public class ViewFactory
         return new HomeScreenView(layoutInflater,parent);
     }
 
-    public NavigationDrawerView getNavigationDrawerView(@Nullable ViewGroup parent)
+    public NavigationDrawerScreenView getNavigationDrawerView(@Nullable ViewGroup parent)
     {
-        return new NavigationDrawerView(layoutInflater,parent);
+        return new NavigationDrawerScreenView(layoutInflater,parent);
+    }
+
+    public BottomNavigationScreenView getBottomNavigationScreenView(@Nullable ViewGroup parent)
+    {
+        return new BottomNavigationScreenView(layoutInflater,parent);
     }
 }

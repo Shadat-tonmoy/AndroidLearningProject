@@ -6,35 +6,37 @@ import android.util.Log;
 import com.stcodesapp.bmicalculator.R;
 import com.stcodesapp.bmicalculator.controller.common.BaseController;
 import com.stcodesapp.bmicalculator.tasks.navigationTask.FragmentNavigationTasks;
+import com.stcodesapp.bmicalculator.ui.views.screen.commons.BottomNavigationScreen;
 import com.stcodesapp.bmicalculator.ui.views.screen.commons.NavigationDrawerScreen;
+import com.stcodesapp.bmicalculator.ui.views.screenView.commons.BottomNavigationScreenView;
 import com.stcodesapp.bmicalculator.ui.views.screenView.commons.NavigationDrawerScreenView;
 
 import javax.inject.Inject;
 
-public class NavigationDrawerController extends BaseController implements NavigationDrawerScreen.Listener
+public class BottomNavigationController extends BaseController implements BottomNavigationScreen.Listener
 {
 
-    private static final String TAG = "NavigationDrawerControl";
-    private NavigationDrawerScreenView navigationDrawerScreenView;
+    private static final String TAG = "BottomNavigationControl";
+    private BottomNavigationScreenView screenView;
     @Inject FragmentNavigationTasks fragmentNavigationTasks;
 
-    public NavigationDrawerController(Activity activity)
+    public BottomNavigationController(Activity activity)
     {
         getTaskComponent(activity).inject(this);
     }
 
-    public void bindView(NavigationDrawerScreenView navigationDrawerScreenView) {
-        this.navigationDrawerScreenView = navigationDrawerScreenView;
+    public void bindView(BottomNavigationScreenView screenView) {
+        this.screenView = screenView;
     }
 
     public void onStart()
     {
-        navigationDrawerScreenView.registerListener(this);
+        screenView.registerListener(this);
     }
 
     public void onStop()
     {
-        navigationDrawerScreenView.unregisterListener(this);
+        screenView.unregisterListener(this);
     }
 
     public void onPostCreate()
@@ -43,7 +45,7 @@ public class NavigationDrawerController extends BaseController implements Naviga
     }
 
     @Override
-    public void onNavigationDrawerItemClicked(int itemId) {
+    public void onBottomNavigationItemClicked(int itemId) {
         switch (itemId)
         {
             case R.id.home_menu:
@@ -59,5 +61,10 @@ public class NavigationDrawerController extends BaseController implements Naviga
                 updateToolbarTitle(FragmentTags.NAVIGATION_MENU_2);*/
                 break;
         }
+    }
+
+    public void onBackPressed()
+    {
+
     }
 }

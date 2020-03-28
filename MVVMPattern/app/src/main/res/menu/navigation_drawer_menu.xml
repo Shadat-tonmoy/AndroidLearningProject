@@ -56,7 +56,7 @@
 
             <item
                     android:id="@+id/nav_more"
-                    android:title="@string/more"
+                    android:title="@string/more_from_us"
                     android:icon="@drawable/more_horizontal_white" />
 
         </menu>

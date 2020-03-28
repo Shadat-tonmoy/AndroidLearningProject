@@ -1,5 +1,6 @@
 package com.stcodesapp.bmicalculator.common.dependencyInjection.presentation;
 
+import com.stcodesapp.bmicalculator.ui.activities.BaseBottomNavigationActivity;
 import com.stcodesapp.bmicalculator.ui.activities.BaseNavigationDrawerActivity;
 import com.stcodesapp.bmicalculator.ui.activities.MainActivity;
 import com.stcodesapp.bmicalculator.common.dependencyInjection.presentation.modules.ControllerModule;
@@ -15,4 +16,5 @@ public interface PresentationComponent
      void inject(MainActivity mainActivity);
      void inject(BaseNavigationDrawerActivity baseNavigationDrawerActivity);
      void inject(HomeScreenFragment homeScreenFragment);
+    void inject(BaseBottomNavigationActivity baseBottomNavigationActivity);
 }

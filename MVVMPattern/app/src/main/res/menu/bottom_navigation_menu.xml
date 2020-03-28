@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home_menu"
+        android:title="@string/home"
+        android:icon="@drawable/home_white"/>
+
+    <item
+        android:id="@+id/history_menu"
+        android:icon="@drawable/history_white"
+        android:title="@string/history"
+        android:checkable="false"
+        />
+
+    <item
+        android:id="@+id/nav_more"
+        android:title="@string/more"
+        android:icon="@drawable/more_horizontal_white" />
+
+
+
+</menu>

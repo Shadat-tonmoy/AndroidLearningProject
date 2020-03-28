@@ -3,7 +3,7 @@ package com.stcodesapp.bmicalculator.ui.activities;
 import android.os.Bundle;
 import android.util.Log;
 
-public class MainActivity extends BaseNavigationDrawerActivity
+public class MainActivity extends BaseBottomNavigationActivity
 {
 
     private static final String TAG = "MainActivity";

@@ -8,7 +8,8 @@
     <string name="about_the_app">About The App</string>
     <string name="share_the_app">Share the App</string>
     <string name="rate_the_app">Rate The App</string>
-    <string name="more">More From Us</string>
+    <string name="more_from_us">More From Us</string>
+    <string name="more">More</string>
     <string name="drawer_open">Drawer Open</string>
     <string name="drawer_close">Drawer Close</string>
 </resources>

@@ -2,6 +2,7 @@ package com.stcodesapp.bmicalculator.common.dependencyInjection.presentation.mod
 
 import android.app.Activity;
 
+import com.stcodesapp.bmicalculator.controller.activityController.BottomNavigationController;
 import com.stcodesapp.bmicalculator.controller.fragmentController.HomeFragmentController;
 import com.stcodesapp.bmicalculator.controller.activityController.NavigationDrawerController;
 
@@ -22,6 +23,12 @@ public class ControllerModule
     NavigationDrawerController getNavigationDrawerController(Activity activity)
     {
         return new NavigationDrawerController(activity);
+    }
+
+    @Provides
+    BottomNavigationController getBottomNavigationController(Activity activity)
+    {
+        return new BottomNavigationController(activity);
     }
 
 

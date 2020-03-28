@@ -11,20 +11,22 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.stcodesapp.bmicalculator.R;
+import com.stcodesapp.bmicalculator.ui.views.screen.commons.BottomNavigationScreen;
 import com.stcodesapp.bmicalculator.ui.views.screen.commons.NavigationDrawerScreen;
 
-public class NavigationDrawerView extends BaseObservableScreenView<NavigationDrawerScreen.Listener> implements NavigationDrawerScreen {
+public class BottomNavigationScreenView extends BaseObservableScreenView<BottomNavigationScreen.Listener> implements BottomNavigationScreen
+{
 
-    private DrawerLayout drawerLayout;
-    private NavigationView navigationView;
+    private BottomNavigationView bottomNavigationView;
     private Toolbar toolbar;
     private FrameLayout frameLayout;
 
-    public NavigationDrawerView(LayoutInflater layoutInflater, @Nullable ViewGroup parent)
+    public BottomNavigationScreenView(LayoutInflater layoutInflater, @Nullable ViewGroup parent)
     {
-        super.setRootView(layoutInflater.inflate(R.layout.navigation_drawer_layout,parent,false));
+        super.setRootView(layoutInflater.inflate(R.layout.bottom_navigation_layout,parent,false));
         inflateUIElements();
         initUserInteractions();
     }
@@ -32,13 +34,13 @@ public class NavigationDrawerView extends BaseObservableScreenView<NavigationDra
 
     @Override
     public void initUserInteractions() {
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                drawerLayout.closeDrawers();
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem)
+            {
                 for(Listener listener : getListeners())
                 {
-                    listener.onNavigationDrawerItemClicked(menuItem.getItemId());
+                    listener.onBottomNavigationItemClicked(menuItem.getItemId());
                 }
                 return true;
             }
@@ -49,31 +51,18 @@ public class NavigationDrawerView extends BaseObservableScreenView<NavigationDra
     @Override
     public void inflateUIElements() {
         toolbar = findViewById(R.id.app_toolbar);
-        drawerLayout = findViewById(R.id.drawer_layout);
-        navigationView = findViewById(R.id.navigation_view);
+        bottomNavigationView = findViewById(R.id.bottom_navigation_view);
         frameLayout = findViewById(R.id.frame_content);
 
     }
 
-    public void checkMenuItem(int itemId)
-    {
-        navigationView.setCheckedItem(itemId);
-    }
-
-    public void closeNavDrawer() {
-        drawerLayout.closeDrawers();
-    }
-
-    public boolean isDrawerOpen() {
-        return drawerLayout.isDrawerOpen(GravityCompat.START);
-    }
 
     public Toolbar getToolbar() {
         return toolbar;
     }
 
-    public DrawerLayout getDrawerLayout() {
-        return drawerLayout;
+    public BottomNavigationView getBottomNavigationView() {
+        return bottomNavigationView;
     }
 
     public FrameLayout getFrameLayout() {
