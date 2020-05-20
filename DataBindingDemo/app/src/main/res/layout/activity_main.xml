@@ -6,6 +6,10 @@
             name="Person"
             type="com.shadattonmoy.databindingdemo.models.Person" />
 
+        <variable
+            name="clickListener"
+            type="com.shadattonmoy.databindingdemo.MainActivity.MainActivityClickListener" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -36,6 +40,52 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/name_text_view" />
+
+        <LinearLayout
+            android:id="@+id/link_button_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/designation_text_view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:padding="@dimen/default_padding">
+
+            <TextView
+                android:id="@+id/phone_button"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/phone"
+                android:drawableTop="@drawable/phone_black_32"
+                android:gravity="center"
+                android:onClick="@{clickListener.onPhoneButtonClicked}"
+                android:drawablePadding="@dimen/default_padding"/>
+
+            <TextView
+                android:id="@+id/email_button"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/email"
+                android:drawableTop="@drawable/email_black_32"
+                android:onClick="@{clickListener.onEmailButtonClicked}"
+                android:gravity="center"
+                android:drawablePadding="@dimen/default_padding"/>
+
+            <TextView
+                android:id="@+id/message_button"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/message"
+                android:drawableTop="@drawable/message_black_32"
+                android:onClick="@{clickListener.onMessageButtonClicked}"
+                android:gravity="center"
+                android:drawablePadding="@dimen/default_padding"/>
+
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
