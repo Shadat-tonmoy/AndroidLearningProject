@@ -1,4 +1,4 @@
-package com.shadattonmoy.databindingdemo;
+package com.shadattonmoy.androidJetPackDemo;
 
 import org.junit.Test;
 

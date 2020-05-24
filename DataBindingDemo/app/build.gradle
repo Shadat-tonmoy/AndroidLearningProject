@@ -9,7 +9,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.shadattonmoy.databindingdemo"
+        applicationId "com.shadattonmoy.androidJetPackDemo"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 1

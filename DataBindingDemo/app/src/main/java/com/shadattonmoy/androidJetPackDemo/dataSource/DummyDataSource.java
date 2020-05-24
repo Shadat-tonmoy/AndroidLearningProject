@@ -1,6 +1,6 @@
-package com.shadattonmoy.databindingdemo.dataSource;
+package com.shadattonmoy.androidJetPackDemo.dataSource;
 
-import com.shadattonmoy.databindingdemo.models.Person;
+import com.shadattonmoy.androidJetPackDemo.models.Person;
 
 public class DummyDataSource
 {

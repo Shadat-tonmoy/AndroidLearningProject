@@ -1,4 +1,4 @@
-package com.shadattonmoy.databindingdemo;
+package com.shadattonmoy.androidJetPackDemo;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -7,28 +7,29 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.shadattonmoy.databindingdemo.dataSource.DummyDataSource;
-import com.shadattonmoy.databindingdemo.databinding.ActivityMainBinding;
+import com.shadattonmoy.androidJetPackDemo.dataSource.DummyDataSource;
+import com.shadattonmoy.androidJetPackDemo.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity
 {
-    ActivityMainBinding dataBinder;
     MainActivityClickListener clickListener;
+    ActivityMainBinding dataBinder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+//        setContentView(R.layout.activity_main);
         initDataBinder();
     }
 
     private void initDataBinder()
     {
-        dataBinder = DataBindingUtil.setContentView(this,R.layout.activity_main);
+        dataBinder = DataBindingUtil.inflate(getLayoutInflater(),R.layout.activity_main,null,false);
         dataBinder.setPerson(DummyDataSource.getDummyPerson());
         clickListener = new MainActivityClickListener();
         dataBinder.setClickListener(clickListener);
+        setContentView(dataBinder.getRoot());
     }
 
     public class MainActivityClickListener

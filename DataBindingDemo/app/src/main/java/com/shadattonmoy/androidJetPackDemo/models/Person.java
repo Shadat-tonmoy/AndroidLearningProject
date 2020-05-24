@@ -1,4 +1,4 @@
-package com.shadattonmoy.databindingdemo.models;
+package com.shadattonmoy.androidJetPackDemo.models;
 
 public class Person
 {

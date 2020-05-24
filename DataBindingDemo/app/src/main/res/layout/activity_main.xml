@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <variable
             name="Person"
-            type="com.shadattonmoy.databindingdemo.models.Person" />
+            type="com.shadattonmoy.androidJetPackDemo.models.Person" />
 
         <variable
             name="clickListener"
-            type="com.shadattonmoy.databindingdemo.MainActivity.MainActivityClickListener" />
+            type="com.shadattonmoy.androidJetPackDemo.MainActivity.MainActivityClickListener" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
@@ -59,7 +60,7 @@
                 android:text="@string/phone"
                 android:drawableTop="@drawable/phone_black_32"
                 android:gravity="center"
-                android:onClick="@{clickListener.onPhoneButtonClicked}"
+                android:onClick="@{clickListener::onPhoneButtonClicked}"
                 android:drawablePadding="@dimen/default_padding"/>
 
             <TextView
@@ -69,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/email"
                 android:drawableTop="@drawable/email_black_32"
-                android:onClick="@{clickListener.onEmailButtonClicked}"
+                android:onClick="@{clickListener::onEmailButtonClicked}"
                 android:gravity="center"
                 android:drawablePadding="@dimen/default_padding"/>
 
@@ -80,7 +81,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/message"
                 android:drawableTop="@drawable/message_black_32"
-                android:onClick="@{clickListener.onMessageButtonClicked}"
+                android:onClick="@{clickListener::onMessageButtonClicked}"
                 android:gravity="center"
                 android:drawablePadding="@dimen/default_padding"/>
 

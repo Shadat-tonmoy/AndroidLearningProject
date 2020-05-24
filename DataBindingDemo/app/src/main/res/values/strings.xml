@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DataBindingDemo</string>
+    <string name="app_name">JetPackDemo</string>
     <string name="phone">Phone</string>
     <string name="email">Email</string>
     <string name="message">Message</string>
