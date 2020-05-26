@@ -12,6 +12,9 @@
         <variable
             name="clickListener"
             type="com.shadattonmoy.androidJetPackDemo.MainActivity.MainActivityClickListener" />
+        
+        <import type="android.view.View"/>
+        <import type="com.shadattonmoy.androidJetPackDemo.helpers.StringHelper"/>
 
     </data>
 
@@ -25,7 +28,7 @@
             android:id="@+id/name_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{nameInputField.text.length() > 0? String.format(@string/nameWithLength,nameInputField.text.toString(),nameInputField.text.length()) : @string/loading}"
+            android:text="@{nameInputField.text.length() > 0 ? @string/nameWithLength(StringHelper.capitalizeString(nameInputField.text.toString()), nameInputField.text.length()) : @string/loading}"
             android:padding="@dimen/default_margin_padding"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -47,6 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:visibility="@{nameInputField.text.length() > 0 ? View.VISIBLE : View.GONE}"
             app:layout_constraintTop_toBottomOf="@id/designation_text_view"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
