@@ -5,4 +5,5 @@
     <string name="message">Message</string>
     <string name="loading">Loading…</string>
     <string name="nameWithLength">%s and Length is %d</string>
+    <string name="update_data">Update Data</string>
 </resources>

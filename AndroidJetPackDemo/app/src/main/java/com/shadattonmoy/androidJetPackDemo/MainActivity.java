@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -12,6 +14,7 @@ import com.shadattonmoy.androidJetPackDemo.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity
 {
+    private static final String TAG = "MainActivity";
     MainActivityClickListener clickListener;
     ActivityMainBinding dataBinder;
 
@@ -29,6 +32,42 @@ public class MainActivity extends AppCompatActivity
         clickListener = new MainActivityClickListener();
         dataBinder.setClickListener(clickListener);
         setContentView(dataBinder.getRoot());
+        startHandler();
+    }
+
+    private void startHandler()
+    {
+        final Handler handler = new Handler();
+        Thread waitingThread = new Thread(new Runnable() {
+            @Override
+            public void run()
+            {
+                try
+                {
+                    Log.e(TAG, "run: WaitingForUpdate");
+                    Thread.sleep(5000);
+                    handler.post(new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+
+                            Log.e(TAG, "run: WaitCompleted");
+                            dataBinder.setPerson(DummyDataSource.getUpdatedPerson());
+
+                        }
+                    });
+
+                }catch (Exception e)
+                {
+
+                }
+
+            }
+        });
+        waitingThread.start();
+
+
     }
 
     public class MainActivityClickListener
@@ -47,6 +86,11 @@ public class MainActivity extends AppCompatActivity
         public void onMessageButtonClicked(View view)
         {
             Toast.makeText(view.getContext(), "ClickedOnMessage", Toast.LENGTH_SHORT).show();
+        }
+
+        public void onUpdateDataClicked(View view)
+        {
+            dataBinder.setPerson(DummyDataSource.getUpdatedPerson());
         }
 
 

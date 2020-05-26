@@ -1,6 +1,11 @@
 package com.shadattonmoy.androidJetPackDemo.models;
 
-public class Person
+import androidx.databinding.BaseObservable;
+import androidx.databinding.Bindable;
+
+import com.shadattonmoy.androidJetPackDemo.BR;
+
+public class Person extends BaseObservable
 {
     private String name;
     private String designation;
@@ -11,6 +16,7 @@ public class Person
         this.designation = designation;
     }
 
+    @Bindable
     public String getName()
     {
         return name;
@@ -19,8 +25,10 @@ public class Person
     public void setName(String name)
     {
         this.name = name;
+        notifyPropertyChanged(BR.name);
     }
 
+    @Bindable
     public String getDesignation()
     {
         return designation;
@@ -29,5 +37,6 @@ public class Person
     public void setDesignation(String designation)
     {
         this.designation = designation;
+        notifyPropertyChanged(BR.designation);
     }
 }
