@@ -19,13 +19,12 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
         initDataBinder();
     }
 
     private void initDataBinder()
     {
-        dataBinder = DataBindingUtil.inflate(getLayoutInflater(),R.layout.activity_main,null,false);
+        dataBinder = DataBindingUtil.setContentView(this,R.layout.activity_main);
         dataBinder.setPerson(DummyDataSource.getDummyPerson());
         clickListener = new MainActivityClickListener();
         dataBinder.setClickListener(clickListener);

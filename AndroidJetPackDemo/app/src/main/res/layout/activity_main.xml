@@ -25,8 +25,8 @@
             android:id="@+id/name_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{Person.name}"
-            android:padding="@dimen/default_padding"
+            android:text="@{nameInputField.text.length() > 0? String.format(@string/nameWithLength,nameInputField.text.toString(),nameInputField.text.length()) : @string/loading}"
+            android:padding="@dimen/default_margin_padding"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -37,7 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{Person.designation}"
-            android:padding="@dimen/default_padding"
+            android:padding="@dimen/default_margin_padding"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/name_text_view" />
@@ -50,7 +50,7 @@
             app:layout_constraintTop_toBottomOf="@id/designation_text_view"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:padding="@dimen/default_padding">
+            android:padding="@dimen/default_margin_padding">
 
             <TextView
                 android:id="@+id/phone_button"
@@ -61,7 +61,7 @@
                 android:drawableTop="@drawable/phone_black_32"
                 android:gravity="center"
                 android:onClick="@{clickListener::onPhoneButtonClicked}"
-                android:drawablePadding="@dimen/default_padding"/>
+                android:drawablePadding="@dimen/default_margin_padding"/>
 
             <TextView
                 android:id="@+id/email_button"
@@ -72,7 +72,7 @@
                 android:drawableTop="@drawable/email_black_32"
                 android:onClick="@{clickListener::onEmailButtonClicked}"
                 android:gravity="center"
-                android:drawablePadding="@dimen/default_padding"/>
+                android:drawablePadding="@dimen/default_margin_padding"/>
 
             <TextView
                 android:id="@+id/message_button"
@@ -83,10 +83,15 @@
                 android:drawableTop="@drawable/message_black_32"
                 android:onClick="@{clickListener::onMessageButtonClicked}"
                 android:gravity="center"
-                android:drawablePadding="@dimen/default_padding"/>
-
-
+                android:drawablePadding="@dimen/default_margin_padding"/>
         </LinearLayout>
+
+        <EditText
+            android:id="@+id/nameInputField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/link_button_container"
+            android:layout_margin="@dimen/default_margin_padding"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
