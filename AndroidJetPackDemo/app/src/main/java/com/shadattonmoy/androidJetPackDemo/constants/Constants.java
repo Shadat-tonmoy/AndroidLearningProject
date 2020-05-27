@@ -6,4 +6,5 @@ public class Constants
     public static final String WEATHER_API_BASE_URL = "https://samples.openweathermap.org/";
     public static final String SAMPLE_LOCATION = "London,uk";
     public static final String SAMPLE_API_KEY = "439d4b804bc8187953eb36d2a8c26a02";
+    public static final String SAMPLE_API_UNIT = "metric";
 }

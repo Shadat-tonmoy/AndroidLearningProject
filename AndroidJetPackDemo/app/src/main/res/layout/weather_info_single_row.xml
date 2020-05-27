@@ -1,33 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="@dimen/default_margin_padding">
 
-    <TextView
-        android:id="@+id/info_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="@string/temperature"/>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:id="@+id/info_value"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:text="@string/temperature_value" />
+    <data>
 
-    <View
-        android:id="@+id/divider"
+        <variable
+            name="weatherInfo"
+            type="com.shadattonmoy.androidJetPackDemo.models.weatherAPIModel.WeatherInfo" />
+
+        <variable
+            name="infoType"
+            type="com.shadattonmoy.androidJetPackDemo.constants.enums.WeatherInfoType" />
+
+        <variable
+            name="context"
+            type="android.content.Context" />
+
+        <import type="com.shadattonmoy.androidJetPackDemo.helpers.StringHelper"/>
+
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="@dimen/default_margin_padding"
-        app:layout_constraintTop_toBottomOf="@id/info_title"
-        android:background="?android:attr/listDivider" />
+        android:layout_height="wrap_content"
+        android:padding="@dimen/default_margin_padding">
+
+        <TextView
+            android:id="@+id/info_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@{StringHelper.getWeatherInfoTitle(context,infoType)}"/>
+
+        <TextView
+            android:id="@+id/info_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@{StringHelper.getWeatherInfoValue(context,infoType,weatherInfo)}" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/double_margin_padding"
+            app:layout_constraintTop_toBottomOf="@id/info_title"
+            android:background="?android:attr/listDivider" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

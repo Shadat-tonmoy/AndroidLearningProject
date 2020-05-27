@@ -59,6 +59,7 @@ public class MainActivityController implements LifecycleObserver
     {
         dataBinder = DataBindingUtil.setContentView(activity, R.layout.weather_screen_layout);
         dataBinder.setWeatherData(DummyDataSource.getDummyWeatherData());
+        dataBinder.setContext(activity);
         activity.setContentView(dataBinder.getRoot());
     }
 

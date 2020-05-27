@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <import type="com.shadattonmoy.androidJetPackDemo.helpers.TimeHelper"/>
         <import type="android.graphics.drawable.Drawable"/>
+        <import type="com.shadattonmoy.androidJetPackDemo.constants.enums.WeatherInfoType"/>
         <variable
             name="weatherData"
             type="com.shadattonmoy.androidJetPackDemo.models.weatherAPIModel.WeatherData" />
+        <variable
+            name="context"
+            type="android.content.Context" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,7 +24,7 @@
             android:id="@+id/weather_background"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintHeight_percent="0.55"
+            app:layout_constraintHeight_percent="0.40"
             tools:imageResource="@{TimeHelper.backgroundImageId, default=@drawable/night}"
             android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
@@ -30,7 +35,7 @@
             android:id="@+id/temperature_container"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintHeight_percent="0.55"
+            app:layout_constraintHeight_percent="0.40"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -49,11 +54,10 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintHeight_percent="0.45"
+            app:layout_constraintHeight_percent="0.60"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/temperature_container"
-            android:background="@color/white"
             android:elevation="@dimen/default_margin_padding">
 
             <LinearLayout
@@ -62,11 +66,31 @@
                 android:orientation="vertical"
                 android:padding="@dimen/double_margin_padding">
 
-                <include layout="@layout/weather_info_single_row"/>
-                <include layout="@layout/weather_info_single_row"/>
-                <include layout="@layout/weather_info_single_row"/>
-                <include layout="@layout/weather_info_single_row"/>
-                <include layout="@layout/weather_info_single_row"/>
+                <include layout="@layout/weather_info_single_row"
+                    bind:weatherInfo="@{weatherData.weatherInfo}"
+                    bind:infoType="@{WeatherInfoType.TEMPERATURE}"
+                    bind:context="@{context}"
+                    />
+                <include layout="@layout/weather_info_single_row"
+                    bind:weatherInfo="@{weatherData.weatherInfo}"
+                    bind:infoType="@{WeatherInfoType.PRESSURE}"
+                    bind:context="@{context}"
+                    />
+                <include layout="@layout/weather_info_single_row"
+                    bind:weatherInfo="@{weatherData.weatherInfo}"
+                    bind:infoType="@{WeatherInfoType.HUMIDITY}"
+                    bind:context="@{context}"
+                    />
+                <include layout="@layout/weather_info_single_row"
+                    bind:weatherInfo="@{weatherData.weatherInfo}"
+                    bind:infoType="@{WeatherInfoType.MIN_TEMPERATURE}"
+                    bind:context="@{context}"
+                    />
+                <include layout="@layout/weather_info_single_row"
+                    bind:weatherInfo="@{weatherData.weatherInfo}"
+                    bind:infoType="@{WeatherInfoType.MAX_TEMPERATURE}"
+                    bind:context="@{context}"
+                    />
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
