@@ -4,6 +4,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import com.shadattonmoy.androidJetPackDemo.constants.Constants;
+import com.shadattonmoy.androidJetPackDemo.models.weatherAPIModel.WeatherData;
 import com.shadattonmoy.androidJetPackDemo.weatherAPI.WeatherAPIClient;
 
 import retrofit2.Call;
@@ -24,18 +25,27 @@ public class WeatherInfoFetchUseCase extends AsyncTask<Void,Void,Void>
     @Override
     protected Void doInBackground(Void... voids)
     {
-        Call<Object> sampleAPIRequest = WeatherAPIClient.getAPIService().testSampleAPI(Constants.SAMPLE_LOCATION,Constants.SAMPLE_API_KEY);
-        sampleAPIRequest.enqueue(new Callback<Object>() {
+        Call<WeatherData> sampleAPIRequest = WeatherAPIClient.getAPIService().testSampleAPI(Constants.SAMPLE_LOCATION,Constants.SAMPLE_API_KEY);
+        sampleAPIRequest.enqueue(new Callback<WeatherData>() {
             @Override
-            public void onResponse(Call<Object> call, Response<Object> response)
+            public void onResponse(Call<WeatherData> call, Response<WeatherData> response)
             {
+                if(response.body()!=null)
+                {
+                    try {
+                        WeatherData weatherData = response.body();
+                    }
+                    catch (Exception e)
+                    {
+                        Log.e(TAG, "onResponse: Exception : "+e.getMessage());
+                    }
 
-                Log.e(TAG, "onResponse: Response "+response.body());
+                }
 
             }
 
             @Override
-            public void onFailure(Call<Object> call, Throwable t)
+            public void onFailure(Call<WeatherData> call, Throwable t)
             {
                 Log.e(TAG, "onFailure: "+t.getMessage());
 
