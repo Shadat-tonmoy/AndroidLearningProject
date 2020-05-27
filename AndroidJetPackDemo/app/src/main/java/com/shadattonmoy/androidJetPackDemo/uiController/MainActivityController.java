@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.shadattonmoy.androidJetPackDemo.R;
 import com.shadattonmoy.androidJetPackDemo.dataSource.DummyDataSource;
 import com.shadattonmoy.androidJetPackDemo.databinding.ActivityMainBinding;
+import com.shadattonmoy.androidJetPackDemo.databinding.WeatherScreenLayoutBinding;
 import com.shadattonmoy.androidJetPackDemo.helpers.DialogHelper;
 import com.shadattonmoy.androidJetPackDemo.models.Person;
 import com.shadattonmoy.androidJetPackDemo.useCase.WeatherInfoFetchUseCase;
@@ -25,7 +26,7 @@ public class MainActivityController implements LifecycleObserver
     private static final String TAG = "MainActivityController";
 
     private AppCompatActivity activity;
-    private ActivityMainBinding dataBinder;
+    private WeatherScreenLayoutBinding dataBinder;
     private PersonViewModel personViewModel;
 
     public MainActivityController(AppCompatActivity activity)
@@ -55,22 +56,21 @@ public class MainActivityController implements LifecycleObserver
 
     private void initDataBinder()
     {
-        dataBinder = DataBindingUtil.setContentView(activity, R.layout.activity_main);
-        dataBinder.setPerson(DummyDataSource.getDummyPerson());
-        dataBinder.setClickListener(this);
+        dataBinder = DataBindingUtil.setContentView(activity, R.layout.weather_screen_layout);
+        dataBinder.setWeatherData(DummyDataSource.getDummyWeatherData());
         activity.setContentView(dataBinder.getRoot());
     }
 
     private void initViewModel()
     {
-        personViewModel = new ViewModelProvider(activity).get(PersonViewModel.class);
+        /*personViewModel = new ViewModelProvider(activity).get(PersonViewModel.class);
         personViewModel.getPerson().observe(activity, new Observer<Person>() {
             @Override
             public void onChanged(Person person)
             {
                 dataBinder.setPerson(person);
             }
-        });
+        });*/
 
     }
 

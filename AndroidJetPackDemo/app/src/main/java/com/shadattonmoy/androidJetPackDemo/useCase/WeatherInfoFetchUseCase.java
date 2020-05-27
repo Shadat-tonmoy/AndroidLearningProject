@@ -1,7 +1,6 @@
 package com.shadattonmoy.androidJetPackDemo.useCase;
 
 import android.os.AsyncTask;
-import android.util.Log;
 
 import com.shadattonmoy.androidJetPackDemo.constants.Constants;
 import com.shadattonmoy.androidJetPackDemo.models.weatherAPIModel.WeatherData;
@@ -14,7 +13,14 @@ import retrofit2.Response;
 public class WeatherInfoFetchUseCase extends AsyncTask<Void,Void,Void>
 {
 
+    public interface Listener
+    {
+        void onWeatherInfoFetchSuccess(WeatherData weatherData);
+        void onWeatherInfoFetchFailure(String failureMessage);
+    }
+
     private static final String TAG = "WeatherInfoFetchUseCase";
+    private Listener listener;
 
     @Override
     protected void onPreExecute()
@@ -25,8 +31,12 @@ public class WeatherInfoFetchUseCase extends AsyncTask<Void,Void,Void>
     @Override
     protected Void doInBackground(Void... voids)
     {
-        Call<WeatherData> sampleAPIRequest = WeatherAPIClient.getAPIService().testSampleAPI(Constants.SAMPLE_LOCATION,Constants.SAMPLE_API_KEY);
-        sampleAPIRequest.enqueue(new Callback<WeatherData>() {
+        Call<WeatherData> sampleAPIRequest = WeatherAPIClient
+                .getAPIService()
+                .testSampleAPI(Constants.SAMPLE_LOCATION,Constants.SAMPLE_API_KEY);
+
+        sampleAPIRequest.enqueue(new Callback<WeatherData>()
+        {
             @Override
             public void onResponse(Call<WeatherData> call, Response<WeatherData> response)
             {
@@ -34,24 +44,29 @@ public class WeatherInfoFetchUseCase extends AsyncTask<Void,Void,Void>
                 {
                     try {
                         WeatherData weatherData = response.body();
+                        if(listener!=null)
+                            listener.onWeatherInfoFetchSuccess(weatherData);
                     }
                     catch (Exception e)
                     {
-                        Log.e(TAG, "onResponse: Exception : "+e.getMessage());
+                        notifyFailureToListener(e.getMessage());
                     }
-
                 }
-
             }
 
             @Override
             public void onFailure(Call<WeatherData> call, Throwable t)
             {
-                Log.e(TAG, "onFailure: "+t.getMessage());
-
+                notifyFailureToListener(t.getMessage());
             }
         });
         return null;
+    }
+
+    private void notifyFailureToListener(String failureMessage)
+    {
+        if(listener!=null)
+            listener.onWeatherInfoFetchFailure(failureMessage);
     }
 
     @Override
@@ -59,4 +74,11 @@ public class WeatherInfoFetchUseCase extends AsyncTask<Void,Void,Void>
     {
         super.onPostExecute(aVoid);
     }
+
+    public void setListener(Listener listener)
+    {
+        this.listener = listener;
+    }
+
+
 }

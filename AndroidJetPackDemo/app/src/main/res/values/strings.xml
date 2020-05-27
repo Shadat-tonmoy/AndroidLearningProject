@@ -8,4 +8,7 @@
     <string name="update_data">Update Data</string>
     <string name="updating_info">Updating Info</string>
     <string name="test_api">Test API</string>
+    <string name="temperature_value">%.2f&#xb0;C</string>
+    <string name="default_temperature_value">25&#xb0;C</string>
+    <string name="temperature">Temperature</string>
 </resources>

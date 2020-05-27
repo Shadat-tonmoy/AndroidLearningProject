@@ -14,7 +14,9 @@
             type="com.shadattonmoy.androidJetPackDemo.uiController.MainActivityController" />
         
         <import type="android.view.View"/>
+        <import type="android.graphics.drawable.Drawable"/>
         <import type="com.shadattonmoy.androidJetPackDemo.helpers.StringHelper"/>
+        <import type="com.shadattonmoy.androidJetPackDemo.helpers.TimeHelper"/>
 
     </data>
 
@@ -23,6 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
+
 
         <!--android:text="@{nameInputField.text.length() > 0 ? @string/nameWithLength(StringHelper.capitalizeString(nameInputField.text.toString()), nameInputField.text.length()) : @string/loading}"-->
 
