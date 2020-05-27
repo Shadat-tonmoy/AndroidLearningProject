@@ -14,9 +14,11 @@
     <string name="pressure">Pressure</string>
     <string name="min_temperature">Minimum Temperature</string>
     <string name="max_temperature">Maximum Temperature</string>
+    <string name="default_value">……</string>
     <string name="temperature_value">%.2f&#xb0;K</string>
     <string name="humidity_value">%.2f %%</string>
     <string name="pressure_value">%.2f Pa</string>
     <string name="min_temperature_value">%.2f&#xb0;K</string>
     <string name="max_temperature_value">%.2f&#xb0;K</string>
+    <string name="get_weather_by_city">Get Weather by City</string>
 </resources>

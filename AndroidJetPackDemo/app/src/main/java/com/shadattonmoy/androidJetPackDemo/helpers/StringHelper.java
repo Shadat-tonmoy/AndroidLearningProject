@@ -36,6 +36,8 @@ public class StringHelper
 
     public static String getWeatherInfoValue(Context context, WeatherInfoType weatherInfoType, WeatherInfo weatherInfo)
     {
+        if(weatherInfo==null)
+            return context.getString(R.string.default_value);
         switch (weatherInfoType)
         {
             case TEMPERATURE:
@@ -49,6 +51,6 @@ public class StringHelper
             case MAX_TEMPERATURE:
                 return context.getString(R.string.max_temperature_value,weatherInfo.getMaximumTemperature());
         }
-        return context.getString(R.string.temperature_value,weatherInfo.getTemperature());
+        return context.getString(R.string.default_value);
     }
 }

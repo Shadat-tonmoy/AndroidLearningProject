@@ -58,8 +58,8 @@ public class MainActivityController implements LifecycleObserver
     private void initDataBinder()
     {
         dataBinder = DataBindingUtil.setContentView(activity, R.layout.weather_screen_layout);
-        dataBinder.setWeatherData(DummyDataSource.getDummyWeatherData());
         dataBinder.setContext(activity);
+        dataBinder.setClickListener(this);
         activity.setContentView(dataBinder.getRoot());
     }
 
@@ -90,6 +90,13 @@ public class MainActivityController implements LifecycleObserver
     {
         Toast.makeText(view.getContext(), "ClickedOnMessage", Toast.LENGTH_SHORT).show();
     }
+
+    public void onGetWeatherByLocationButtonClicked(View view)
+    {
+        Toast.makeText(view.getContext(), "Not Implemented Yet!", Toast.LENGTH_SHORT).show();
+    }
+
+
 
     public void onUpdateDataClicked(View view)
     {

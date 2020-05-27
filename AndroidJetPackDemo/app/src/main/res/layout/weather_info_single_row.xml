@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:text="@{StringHelper.getWeatherInfoValue(context,infoType,weatherInfo)}" />
+            android:text="@{StringHelper.getWeatherInfoValue(context,infoType,weatherInfo), default=@string/default_value}" />
 
         <View
             android:id="@+id/divider"
