@@ -24,18 +24,18 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        initDataBinder();
+//        initDataBinder();
         initUIController();
     }
 
     private void initDataBinder()
     {
-        dataBinder = DataBindingUtil.setContentView(this,R.layout.activity_main);
+        /*dataBinder = DataBindingUtil.setContentView(this,R.layout.activity_main);
         dataBinder.setPerson(DummyDataSource.getDummyPerson());
         clickListener = new MainActivityClickListener();
         dataBinder.setClickListener(clickListener);
         setContentView(dataBinder.getRoot());
-        startHandler();
+        startHandler();*/
     }
 
     private void startHandler()
