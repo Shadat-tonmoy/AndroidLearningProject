@@ -2,6 +2,7 @@ package com.shadattonmoy.androidJetPackDemo;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -11,12 +12,14 @@ import android.widget.Toast;
 
 import com.shadattonmoy.androidJetPackDemo.dataSource.DummyDataSource;
 import com.shadattonmoy.androidJetPackDemo.databinding.ActivityMainBinding;
+import com.shadattonmoy.androidJetPackDemo.models.Person;
 import com.shadattonmoy.androidJetPackDemo.uiController.MainActivityController;
+import com.shadattonmoy.androidJetPackDemo.viewModels.PersonViewModel;
 
 public class MainActivity extends AppCompatActivity
 {
     private static final String TAG = "MainActivity";
-    MainActivityController uiController;
+    private MainActivityController uiController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)

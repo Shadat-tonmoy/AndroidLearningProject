@@ -39,4 +39,12 @@ public class Person extends BaseObservable
         this.designation = designation;
         notifyPropertyChanged(BR.designation);
     }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", designation='" + designation + '\'' +
+                '}';
+    }
 }

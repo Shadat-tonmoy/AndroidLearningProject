@@ -8,11 +8,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.OnLifecycleEvent;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.shadattonmoy.androidJetPackDemo.R;
 import com.shadattonmoy.androidJetPackDemo.dataSource.DummyDataSource;
 import com.shadattonmoy.androidJetPackDemo.databinding.ActivityMainBinding;
+import com.shadattonmoy.androidJetPackDemo.models.Person;
+import com.shadattonmoy.androidJetPackDemo.viewModels.PersonViewModel;
 
 public class MainActivityController implements LifecycleObserver
 {
@@ -20,6 +24,7 @@ public class MainActivityController implements LifecycleObserver
 
     private AppCompatActivity activity;
     private ActivityMainBinding dataBinder;
+    private PersonViewModel personViewModel;
 
     public MainActivityController(AppCompatActivity activity)
     {
@@ -31,6 +36,7 @@ public class MainActivityController implements LifecycleObserver
     {
         Log.e(TAG, "onCreate: FromUIController");
         initDataBinder();
+        initViewModel();
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
@@ -53,6 +59,19 @@ public class MainActivityController implements LifecycleObserver
         activity.setContentView(dataBinder.getRoot());
     }
 
+    private void initViewModel()
+    {
+        personViewModel = new ViewModelProvider(activity).get(PersonViewModel.class);
+        personViewModel.getPerson().observe(activity, new Observer<Person>() {
+            @Override
+            public void onChanged(Person person)
+            {
+                dataBinder.setPerson(person);
+            }
+        });
+
+    }
+
     public void onEmailButtonClicked(View view)
     {
         Toast.makeText(view.getContext(), "ClickedOnEmail", Toast.LENGTH_SHORT).show();
@@ -71,7 +90,8 @@ public class MainActivityController implements LifecycleObserver
 
     public void onUpdateDataClicked(View view)
     {
-        dataBinder.setPerson(DummyDataSource.getUpdatedPerson());
+//        dataBinder.setPerson(DummyDataSource.getUpdatedPerson());
+        personViewModel.updatePersonInfo();
     }
 
 
