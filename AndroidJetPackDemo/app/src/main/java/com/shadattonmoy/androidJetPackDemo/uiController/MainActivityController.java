@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.shadattonmoy.androidJetPackDemo.R;
 import com.shadattonmoy.androidJetPackDemo.dataSource.DummyDataSource;
 import com.shadattonmoy.androidJetPackDemo.databinding.ActivityMainBinding;
+import com.shadattonmoy.androidJetPackDemo.helpers.DialogHelper;
 import com.shadattonmoy.androidJetPackDemo.models.Person;
 import com.shadattonmoy.androidJetPackDemo.viewModels.PersonViewModel;
 
@@ -90,7 +91,7 @@ public class MainActivityController implements LifecycleObserver
 
     public void onUpdateDataClicked(View view)
     {
-//        dataBinder.setPerson(DummyDataSource.getUpdatedPerson());
+        DialogHelper.showProgressDialog(activity,activity.getString(R.string.updating_info));
         personViewModel.updatePersonInfo();
     }
 

@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.shadattonmoy.androidJetPackDemo.helpers.DialogHelper;
 import com.shadattonmoy.androidJetPackDemo.models.Person;
 import com.shadattonmoy.androidJetPackDemo.useCase.PersonInfoFetchUseCase;
 
@@ -19,6 +20,7 @@ public class PersonViewModel extends ViewModel implements PersonInfoFetchUseCase
         if(person==null)
         {
             person = new MutableLiveData<>();
+            updatePersonInfo();
         }
         return person;
     }
@@ -34,8 +36,7 @@ public class PersonViewModel extends ViewModel implements PersonInfoFetchUseCase
     public void onPersonInfoFetchSuccess(Person person)
     {
         this.person.setValue(person);
-        Log.e(TAG, "onPersonInfoFetchSuccess: UpdatedPerson : " + person.toString());
-
+        DialogHelper.dismissProgressDialog();
     }
 
     @Override

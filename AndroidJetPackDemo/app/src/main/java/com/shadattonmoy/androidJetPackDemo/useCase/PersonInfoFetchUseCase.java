@@ -27,7 +27,7 @@ public class PersonInfoFetchUseCase extends AsyncTask<Void,Void,Void>
     {
         try
         {
-            Thread.sleep(3000);
+            Thread.sleep(1500);
         }
         catch (Exception e)
         {
