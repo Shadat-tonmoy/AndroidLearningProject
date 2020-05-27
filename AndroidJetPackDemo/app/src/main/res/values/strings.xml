@@ -7,4 +7,5 @@
     <string name="nameWithLength">%s and Length is %d</string>
     <string name="update_data">Update Data</string>
     <string name="updating_info">Updating Info</string>
+    <string name="test_api">Test API</string>
 </resources>

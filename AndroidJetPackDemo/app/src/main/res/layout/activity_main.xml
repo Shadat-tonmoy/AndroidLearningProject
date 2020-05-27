@@ -102,7 +102,18 @@
             android:textColor="@color/white"
             android:onClick="@{clickListener::onUpdateDataClicked}"
             app:layout_constraintTop_toBottomOf="@id/link_button_container"
-            android:layout_margin="@dimen/default_margin_padding"/>
+            android:layout_margin="@dimen/double_margin_padding"/>
+
+        <Button
+            android:id="@+id/testAPIButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:text="@string/test_api"
+            android:textColor="@color/white"
+            android:onClick="@{clickListener::onTestAPIClicked}"
+            app:layout_constraintTop_toBottomOf="@id/updateDataButton"
+            android:layout_margin="@dimen/double_margin_padding"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

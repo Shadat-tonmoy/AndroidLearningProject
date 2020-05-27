@@ -17,6 +17,7 @@ import com.shadattonmoy.androidJetPackDemo.dataSource.DummyDataSource;
 import com.shadattonmoy.androidJetPackDemo.databinding.ActivityMainBinding;
 import com.shadattonmoy.androidJetPackDemo.helpers.DialogHelper;
 import com.shadattonmoy.androidJetPackDemo.models.Person;
+import com.shadattonmoy.androidJetPackDemo.useCase.WeatherInfoFetchUseCase;
 import com.shadattonmoy.androidJetPackDemo.viewModels.PersonViewModel;
 
 public class MainActivityController implements LifecycleObserver
@@ -93,6 +94,18 @@ public class MainActivityController implements LifecycleObserver
     {
         DialogHelper.showProgressDialog(activity,activity.getString(R.string.updating_info));
         personViewModel.updatePersonInfo();
+    }
+
+    public void onTestAPIClicked(View view)
+    {
+        Toast.makeText(view.getContext(), "ClickedOnTestAPI", Toast.LENGTH_SHORT).show();
+        testWeatherAPI();
+    }
+
+    private void testWeatherAPI()
+    {
+        WeatherInfoFetchUseCase useCase = new WeatherInfoFetchUseCase();
+        useCase.execute();
     }
 
 
