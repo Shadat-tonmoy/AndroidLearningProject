@@ -10,13 +10,13 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class WeatherInfoFetchUseCase extends AsyncTask<Void,Void,Void>
+public class WeatherDataFetchUseCase extends AsyncTask<Void,Void,Void>
 {
 
     public interface Listener
     {
-        void onWeatherInfoFetchSuccess(WeatherData weatherData);
-        void onWeatherInfoFetchFailure(String failureMessage);
+        void onWeatherDataFetchSuccess(WeatherData weatherData);
+        void onWeatherDataFetchFailure(String failureMessage);
     }
 
     private static final String TAG = "WeatherInfoFetchUseCase";
@@ -45,7 +45,7 @@ public class WeatherInfoFetchUseCase extends AsyncTask<Void,Void,Void>
                     try {
                         WeatherData weatherData = response.body();
                         if(listener!=null)
-                            listener.onWeatherInfoFetchSuccess(weatherData);
+                            listener.onWeatherDataFetchSuccess(weatherData);
                     }
                     catch (Exception e)
                     {
@@ -66,7 +66,7 @@ public class WeatherInfoFetchUseCase extends AsyncTask<Void,Void,Void>
     private void notifyFailureToListener(String failureMessage)
     {
         if(listener!=null)
-            listener.onWeatherInfoFetchFailure(failureMessage);
+            listener.onWeatherDataFetchFailure(failureMessage);
     }
 
     @Override

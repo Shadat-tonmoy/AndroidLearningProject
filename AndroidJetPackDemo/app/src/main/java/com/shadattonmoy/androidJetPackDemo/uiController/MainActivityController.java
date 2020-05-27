@@ -14,12 +14,12 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.shadattonmoy.androidJetPackDemo.R;
 import com.shadattonmoy.androidJetPackDemo.dataSource.DummyDataSource;
-import com.shadattonmoy.androidJetPackDemo.databinding.ActivityMainBinding;
 import com.shadattonmoy.androidJetPackDemo.databinding.WeatherScreenLayoutBinding;
 import com.shadattonmoy.androidJetPackDemo.helpers.DialogHelper;
-import com.shadattonmoy.androidJetPackDemo.models.Person;
-import com.shadattonmoy.androidJetPackDemo.useCase.WeatherInfoFetchUseCase;
+import com.shadattonmoy.androidJetPackDemo.models.weatherAPIModel.WeatherData;
+import com.shadattonmoy.androidJetPackDemo.useCase.WeatherDataFetchUseCase;
 import com.shadattonmoy.androidJetPackDemo.viewModels.PersonViewModel;
+import com.shadattonmoy.androidJetPackDemo.viewModels.WeatherDataViewModel;
 
 public class MainActivityController implements LifecycleObserver
 {
@@ -28,6 +28,7 @@ public class MainActivityController implements LifecycleObserver
     private AppCompatActivity activity;
     private WeatherScreenLayoutBinding dataBinder;
     private PersonViewModel personViewModel;
+    private WeatherDataViewModel weatherDataViewModel;
 
     public MainActivityController(AppCompatActivity activity)
     {
@@ -63,15 +64,14 @@ public class MainActivityController implements LifecycleObserver
 
     private void initViewModel()
     {
-        /*personViewModel = new ViewModelProvider(activity).get(PersonViewModel.class);
-        personViewModel.getPerson().observe(activity, new Observer<Person>() {
+        weatherDataViewModel = new ViewModelProvider(activity).get(WeatherDataViewModel.class);
+        weatherDataViewModel.getWeatherDataLiveData().observe(activity, new Observer<WeatherData>() {
             @Override
-            public void onChanged(Person person)
+            public void onChanged(WeatherData weatherData)
             {
-                dataBinder.setPerson(person);
+                dataBinder.setWeatherData(weatherData);
             }
-        });*/
-
+        });
     }
 
     public void onEmailButtonClicked(View view)
@@ -104,7 +104,7 @@ public class MainActivityController implements LifecycleObserver
 
     private void testWeatherAPI()
     {
-        WeatherInfoFetchUseCase useCase = new WeatherInfoFetchUseCase();
+        WeatherDataFetchUseCase useCase = new WeatherDataFetchUseCase();
         useCase.execute();
     }
 
