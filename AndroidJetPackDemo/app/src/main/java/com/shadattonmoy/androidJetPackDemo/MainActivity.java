@@ -11,18 +11,21 @@ import android.widget.Toast;
 
 import com.shadattonmoy.androidJetPackDemo.dataSource.DummyDataSource;
 import com.shadattonmoy.androidJetPackDemo.databinding.ActivityMainBinding;
+import com.shadattonmoy.androidJetPackDemo.uiController.MainActivityController;
 
 public class MainActivity extends AppCompatActivity
 {
     private static final String TAG = "MainActivity";
     MainActivityClickListener clickListener;
     ActivityMainBinding dataBinder;
+    MainActivityController uiController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         initDataBinder();
+        initUIController();
     }
 
     private void initDataBinder()
@@ -66,8 +69,12 @@ public class MainActivity extends AppCompatActivity
             }
         });
         waitingThread.start();
+    }
 
-
+    private void initUIController()
+    {
+        uiController = new MainActivityController(this);
+        getLifecycle().addObserver(uiController);
     }
 
     public class MainActivityClickListener
