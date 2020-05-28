@@ -56,11 +56,12 @@ public class WeatherDataFetchUseCase implements WeatherDataRepository.Listener
     public void onWeatherDataFetchFailure(String failureMessage)
     {
         notifyFailureToListener(failureMessage);
+
     }
 
     private void cacheWeatherData(WeatherData weatherData)
     {
-        //caching logic (Can be on Background Thread)
+        //TODO cache weather data locally (Can be on Background Thread)
         notifySuccessToListener(weatherData);
     }
 
