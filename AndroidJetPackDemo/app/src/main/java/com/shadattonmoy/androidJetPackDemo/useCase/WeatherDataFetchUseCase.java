@@ -1,6 +1,7 @@
 package com.shadattonmoy.androidJetPackDemo.useCase;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.shadattonmoy.androidJetPackDemo.constants.Constants;
 import com.shadattonmoy.androidJetPackDemo.models.weatherAPIModel.WeatherData;
@@ -42,8 +43,10 @@ public class WeatherDataFetchUseCase extends AsyncTask<Void,Void,Void>
             {
                 if(response.body()!=null)
                 {
-                    try {
+                    try
+                    {
                         WeatherData weatherData = response.body();
+                        Log.e(TAG, "onResponse: WeatherData : "+weatherData.toString());
                         if(listener!=null)
                             listener.onWeatherDataFetchSuccess(weatherData);
                     }

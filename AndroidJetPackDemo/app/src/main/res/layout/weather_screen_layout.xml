@@ -16,7 +16,7 @@
             type="android.content.Context" />
         <variable
             name="clickListener"
-            type="com.shadattonmoy.androidJetPackDemo.uiController.MainActivityController" />
+            type="com.shadattonmoy.androidJetPackDemo.viewModels.WeatherDataViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -27,7 +27,7 @@
             android:id="@+id/weather_background"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintHeight_percent="0.45"
+            app:layout_constraintHeight_percent="0.60"
             tools:imageResource="@{TimeHelper.backgroundImageId, default=@drawable/night}"
             android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
@@ -38,7 +38,7 @@
             android:id="@+id/temperature_container"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintHeight_percent="0.45"
+            app:layout_constraintHeight_percent="0.60"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:textSize="@dimen/extra_large_text"
-                android:text="@{weatherData!=null ? @string/temperature_value(weatherData.weatherInfo.temperature) : @string/default_value}"
+                android:text="@{ (weatherData!=null &amp; !weatherData.loadingData)  ? @string/temperature_value(weatherData.weatherInfo.temperature) : @string/default_value}"
                 android:textColor="@color/white"/>
 
             <TextView
@@ -62,11 +62,28 @@
                 android:background="@color/colorPrimary"
                 android:padding="@dimen/default_margin_padding"
                 android:layout_marginTop="@dimen/double_margin_padding"
-                android:layout_below="@id/temperature_view"
+                android:layout_below="@id/refresh_data_button"
                 android:drawableStart="@drawable/location_white_24"
                 android:drawablePadding="@dimen/default_margin_padding"
                 android:elevation="@dimen/default_margin_padding"
                 android:onClick="@{clickListener::onGetWeatherByLocationButtonClicked}"
+                android:gravity="center|start"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:id="@+id/refresh_data_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/refresh_data"
+                android:background="@color/colorPrimary"
+                android:padding="@dimen/default_margin_padding"
+                android:layout_marginTop="@dimen/double_margin_padding"
+                android:layout_below="@id/temperature_view"
+                android:drawableStart="@drawable/refresh_white_24"
+                android:drawablePadding="@dimen/default_margin_padding"
+                android:elevation="@dimen/default_margin_padding"
+                android:onClick="@{clickListener::onRefreshDataButtonClicked}"
                 android:gravity="center|start"
                 android:textColor="@color/white"/>
 
@@ -75,7 +92,7 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintHeight_percent="0.60"
+            app:layout_constraintHeight_percent="0.40"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/temperature_container"

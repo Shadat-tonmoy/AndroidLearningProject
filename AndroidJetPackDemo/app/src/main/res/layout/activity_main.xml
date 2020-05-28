@@ -11,7 +11,7 @@
 
         <variable
             name="clickListener"
-            type="com.shadattonmoy.androidJetPackDemo.uiController.MainActivityController" />
+            type="com.shadattonmoy.androidJetPackDemo.viewModels.WeatherDataViewModel" />
         
         <import type="android.view.View"/>
         <import type="android.graphics.drawable.Drawable"/>
@@ -70,7 +70,6 @@
                 android:text="@string/phone"
                 android:drawableTop="@drawable/phone_black_32"
                 android:gravity="center"
-                android:onClick="@{clickListener::onPhoneButtonClicked}"
                 android:drawablePadding="@dimen/default_margin_padding"/>
 
             <TextView
@@ -80,7 +79,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/email"
                 android:drawableTop="@drawable/email_black_32"
-                android:onClick="@{clickListener::onEmailButtonClicked}"
                 android:gravity="center"
                 android:drawablePadding="@dimen/default_margin_padding"/>
 
@@ -91,7 +89,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/message"
                 android:drawableTop="@drawable/message_black_32"
-                android:onClick="@{clickListener::onMessageButtonClicked}"
                 android:gravity="center"
                 android:drawablePadding="@dimen/default_margin_padding"/>
         </LinearLayout>
@@ -103,7 +100,6 @@
             android:background="@color/colorPrimary"
             android:text="@string/update_data"
             android:textColor="@color/white"
-            android:onClick="@{clickListener::onUpdateDataClicked}"
             app:layout_constraintTop_toBottomOf="@id/link_button_container"
             android:layout_margin="@dimen/double_margin_padding"/>
 
@@ -114,7 +110,6 @@
             android:background="@color/colorPrimary"
             android:text="@string/test_api"
             android:textColor="@color/white"
-            android:onClick="@{clickListener::onTestAPIClicked}"
             app:layout_constraintTop_toBottomOf="@id/updateDataButton"
             android:layout_margin="@dimen/double_margin_padding"/>
 

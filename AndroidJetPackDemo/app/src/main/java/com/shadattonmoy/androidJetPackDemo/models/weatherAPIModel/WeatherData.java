@@ -25,6 +25,7 @@ public class WeatherData
     private String cityName;
     @SerializedName("cod")
     private long currentOrientationData;
+    private boolean isLoadingData;
 
 
     public Coordinate getCoordinate() {
@@ -121,6 +122,14 @@ public class WeatherData
 
     public void setCurrentOrientationData(long currentOrientationData) {
         this.currentOrientationData = currentOrientationData;
+    }
+
+    public boolean isLoadingData() {
+        return isLoadingData;
+    }
+
+    public void setLoadingData(boolean loadingData) {
+        isLoadingData = loadingData;
     }
 
     @Override
