@@ -1,17 +1,15 @@
 package com.shadattonmoy.androidJetPackDemo.useCase;
 
-import android.os.AsyncTask;
 import android.util.Log;
 
-import com.shadattonmoy.androidJetPackDemo.constants.Constants;
+import com.shadattonmoy.androidJetPackDemo.dataSource.repository.LocalDataRepository;
+import com.shadattonmoy.androidJetPackDemo.dataSource.repository.RemoteDataRepository;
+import com.shadattonmoy.androidJetPackDemo.dataSource.repository.WeatherDataRepository;
+import com.shadattonmoy.androidJetPackDemo.helpers.NetworkHelper;
+import com.shadattonmoy.androidJetPackDemo.models.weatherAPIModel.Weather;
 import com.shadattonmoy.androidJetPackDemo.models.weatherAPIModel.WeatherData;
-import com.shadattonmoy.androidJetPackDemo.weatherAPI.WeatherAPIClient;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
-public class WeatherDataFetchUseCase extends AsyncTask<Void,Void,Void>
+public class WeatherDataFetchUseCase implements WeatherDataRepository.Listener
 {
 
     public interface Listener
@@ -22,48 +20,48 @@ public class WeatherDataFetchUseCase extends AsyncTask<Void,Void,Void>
 
     private static final String TAG = "WeatherInfoFetchUseCase";
     private Listener listener;
+    private WeatherDataRepository dataRepository;
 
-    @Override
-    protected void onPreExecute()
+
+    public void fetchData()
     {
-        super.onPreExecute();
+        if(NetworkHelper.isInternetAvailable())
+        {
+            Log.e(TAG, "fetchData: FromRemoteDataSource");
+            dataRepository = new RemoteDataRepository();
+        }
+        else
+        {
+            Log.e(TAG, "fetchData: FromLocalDataSource");
+            dataRepository = new LocalDataRepository();
+        }
+        dataRepository.setListener(this);
+        dataRepository.fetchWeatherData();
+    }
+
+    public void setListener(Listener listener)
+    {
+        this.listener = listener;
     }
 
     @Override
-    protected Void doInBackground(Void... voids)
+    public void onWeatherDataFetchSuccess(WeatherData weatherData)
     {
-        Call<WeatherData> sampleAPIRequest = WeatherAPIClient
-                .getAPIService()
-                .testSampleAPI(Constants.SAMPLE_LOCATION,Constants.SAMPLE_API_KEY);
+        if(dataRepository instanceof RemoteDataRepository)
+            cacheWeatherData(weatherData);
 
-        sampleAPIRequest.enqueue(new Callback<WeatherData>()
-        {
-            @Override
-            public void onResponse(Call<WeatherData> call, Response<WeatherData> response)
-            {
-                if(response.body()!=null)
-                {
-                    try
-                    {
-                        WeatherData weatherData = response.body();
-                        Log.e(TAG, "onResponse: WeatherData : "+weatherData.toString());
-                        if(listener!=null)
-                            listener.onWeatherDataFetchSuccess(weatherData);
-                    }
-                    catch (Exception e)
-                    {
-                        notifyFailureToListener(e.getMessage());
-                    }
-                }
-            }
+    }
 
-            @Override
-            public void onFailure(Call<WeatherData> call, Throwable t)
-            {
-                notifyFailureToListener(t.getMessage());
-            }
-        });
-        return null;
+    @Override
+    public void onWeatherDataFetchFailure(String failureMessage)
+    {
+        notifyFailureToListener(failureMessage);
+    }
+
+    private void cacheWeatherData(WeatherData weatherData)
+    {
+        //caching logic (Can be on Background Thread)
+        notifySuccessToListener(weatherData);
     }
 
     private void notifyFailureToListener(String failureMessage)
@@ -72,16 +70,13 @@ public class WeatherDataFetchUseCase extends AsyncTask<Void,Void,Void>
             listener.onWeatherDataFetchFailure(failureMessage);
     }
 
-    @Override
-    protected void onPostExecute(Void aVoid)
+    private void notifySuccessToListener(WeatherData weatherData)
     {
-        super.onPostExecute(aVoid);
+        if(listener!=null)
+            listener.onWeatherDataFetchSuccess(weatherData);
     }
 
-    public void setListener(Listener listener)
-    {
-        this.listener = listener;
-    }
+
 
 
 }

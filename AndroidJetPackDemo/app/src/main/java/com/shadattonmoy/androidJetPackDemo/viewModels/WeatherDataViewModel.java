@@ -11,12 +11,17 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.OnLifecycleEvent;
 import androidx.lifecycle.ViewModel;
 
+import com.shadattonmoy.androidJetPackDemo.dataSource.repository.LocalDataRepository;
+import com.shadattonmoy.androidJetPackDemo.dataSource.repository.RemoteDataRepository;
+import com.shadattonmoy.androidJetPackDemo.dataSource.repository.WeatherDataRepository;
+import com.shadattonmoy.androidJetPackDemo.helpers.NetworkHelper;
 import com.shadattonmoy.androidJetPackDemo.models.weatherAPIModel.WeatherData;
 import com.shadattonmoy.androidJetPackDemo.useCase.WeatherDataFetchUseCase;
 
 public class WeatherDataViewModel extends ViewModel implements WeatherDataFetchUseCase.Listener, LifecycleObserver
 {
     private MutableLiveData<WeatherData> weatherDataLiveData;
+    private WeatherDataRepository dataRepository;
     private static final String TAG = "WeatherDataViewModel";
 
     public LiveData<WeatherData> getWeatherDataLiveData()
@@ -24,7 +29,7 @@ public class WeatherDataViewModel extends ViewModel implements WeatherDataFetchU
         if(weatherDataLiveData ==null)
         {
             weatherDataLiveData = new MutableLiveData<>();
-            fetchWeatherDataFromAPI();
+            fetchWeatherData();
         }
         return weatherDataLiveData;
     }
@@ -54,16 +59,16 @@ public class WeatherDataViewModel extends ViewModel implements WeatherDataFetchU
 
     public void onRefreshDataButtonClicked(View view)
     {
-        fetchWeatherDataFromAPI();
+        fetchWeatherData();
         Toast.makeText(view.getContext(), "Refresh Data Not Implemented Yet!", Toast.LENGTH_SHORT).show();
     }
 
-    private void fetchWeatherDataFromAPI()
+    private void fetchWeatherData()
     {
         showLoadingWeatherData();
         WeatherDataFetchUseCase useCase = new WeatherDataFetchUseCase();
         useCase.setListener(this);
-        useCase.execute();
+        useCase.fetchData();
     }
 
     private void showLoadingWeatherData()
